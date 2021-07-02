@@ -4,7 +4,7 @@
 11 network ready - init machines
 12 machines init - check
 13 system error
-15 system ready - machines ready
+15 machines ready
 
 #bowl state machine
 0  initial

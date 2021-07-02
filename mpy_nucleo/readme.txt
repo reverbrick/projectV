@@ -1,3 +1,5 @@
+#works only on NUCLEO_F767ZI
+
 #building with ethernet support
 make -C ports/stm32 MICROPY_HW_ENABLE_ETH_RMII=1 BOARD=NUCLEO_F767ZI
 
