@@ -2,12 +2,15 @@
 #refer to states.txt for state machine explanations
 import network, time, socket, json
 from machine import UART, reset
+import urequests as requests
 
 net = network.LAN()
 status = pyb.LED(1)
 error = pyb.LED(3)
 status.on()
 error.off()
+
+robot_addr = "http://192.168.125.100"
 
 retry = 0
 max_retry = 10
@@ -21,10 +24,10 @@ serials = {}
 #machine list
 machines = [
     #{"part": "left_bowl", "type": "bowl", "connect": "sock", "address": "192.168.126.x"},
-    {"part": "left_camera", "type": "camera", "connect": "serial", "uart": 2, "baud": 115200}
+    #{"part": "left_camera", "type": "camera", "connect": "serial", "uart": 2, "baud": 115200},
     #{"part": "right_bowl", "type": "bowl", "connect": "sock", "address": "192.168.126.x"},
     #{"part": "right_camera", "type": "camera", "connect": "serial", "address": "uart2"},
-    #{"part": "scara", "type": "robot", "connect": "sock", "address": "192.168.126.x"}
+    #{"part": "scara", "type": "robot", "connect": "sock", "address": "192.168.125.100"}
 ]
 
 #initialize dictionaries strange but works
@@ -42,7 +45,8 @@ for item in machines:
 def n_connect():
     try:
         net.active(True)
-        net.ifconfig('dhcp')
+        #net.ifconfig('dhcp')
+        net.ifconfig(('192.168.125.125', '255.255.255.0', '192.168.125.1', '8.8.8.8'))
     except OSError:
         #retry = retry + 1
         err.append("DHCP timeout, will retry.")
@@ -77,20 +81,20 @@ def s_connect(host, port, discover=False, part=None):
 
 #socket check
 def s_test():
-    pass
-    #s.send(b"GET / HTTP/1.0\r\n\r\n")
-    #print(s.recv(4096))
+    #pass
+    s.send(b"GET / HTTP/1.0\r\n\r\n")
+    print(s.recv(4096))
 
 #socket establishing
 def s_init(part):
     try:
-        socks[part] = s_connect("google.com", 80, discover=True, part=part)
+        socks[part["part"]] = s_connect(part["address"], 80, discover=False, part=part["part"])
     except OSError:
         #retry = retry + 1
-        sm[part]=13
-        err.append("%s socket issue."%part)
+        sm[part["part"]]=13
+        err.append("%s socket issue."%part["part"])
         error.on()
-    sm[part]=10
+    sm[part["part"]]=10
 
 #UART establishing
 def u_init(part):
@@ -139,7 +143,7 @@ def u_get(part):
 def init_machines():
     for item in machines:
         if item["connect"] == "sock":
-            s_init(item["part"])
+            s_init(item)
         elif item["connect"] == "serial":
             u_init(item["part"])
     sm["system"]=12
@@ -151,7 +155,8 @@ def check_machines():
         if item["connect"] == "sock":
             pass
         elif item["connect"] == "serial":
-            u_check(item["part"])
+            pass
+            #u_check(item["part"])
     #check results
     good = True
     for item in machines:
@@ -170,6 +175,27 @@ def check_machines():
 
 def run_machines():
     print(u_get("left_camera"))
+
+def get_flag():
+    res = requests.get('%s/MD/NUMREG.VA'%robot_addr)
+    lines = res.text
+    res.close()
+    pos= lines.find("[15]")
+    return lines[pos+7:pos+8]
+
+def set_pos(x, y, angle):
+    #X
+    r = requests.get('%s/karel/ComSet?sValue=%s&sIndx=11&sRealFlag=2&sFc=2'%(robot_addr, x))
+    r.close()
+    #Y
+    r = requests.get('%s/karel/ComSet?sValue=%s&sIndx=12&sRealFlag=2&sFc=2'%(robot_addr, y))
+    r.close()
+    #kąt
+    r = requests.get('%s/karel/ComSet?sValue=%s&sIndx=14&sRealFlag=2&sFc=2'%(robot_addr, angle))
+    r.close()
+    #flaga
+    r = requests.get('%s/karel/ComSet?sValue=2&sIndx=15&sRealFlag=-1&sFc=2'%robot_addr)
+    r.close()
 
 #print initial state machine
 print(sm)

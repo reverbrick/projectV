@@ -77,11 +77,14 @@ class Velux():
                 img.draw_cross(b.cx(), b.cy(), color=(255,0,0))
                 img.draw_line(b.major_axis_line(), color=(255,0,0))
                 img.draw_line(b.minor_axis_line(), color=(255,0,0))
-                ret['x']=b.cx()*ratio
-                ret['y']=b.cy()*ratio
+                c_point = (320,240)
+                ret['x']=round((b.cx()-c_point[0])*ratio,5)
+                ret['y']=round((b.cy()-c_point[1])*ratio,5)
                 angle = self.math.degrees(angle)
-                if angle<0:
-                    angle=angle+360
+                #if angle<0:
+                #    angle=angle+360
+                if angle>180:
+                    angle=angle-360
                 ret['angle']=angle
         if debug:
             img.save("debug.jpg")
