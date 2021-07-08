@@ -2,19 +2,17 @@
 #refer to states.txt for state machine explanations
 import network, time, socket, json
 from machine import UART, reset
+import urequests as requests
 #import utelnet.utelnetserver as telnet
-from robot import Scara
-from stepper import Nanotec
 
 net = network.LAN()
 status = pyb.LED(1)
-work = pyb.LED(2)
 error = pyb.LED(3)
 status.on()
 error.off()
-work.off()
 
-pause = 0.3
+robot_addr = "http://192.168.125.100"
+
 retry = 0
 max_retry = 10
 err = []
@@ -25,27 +23,24 @@ socks = {}
 serials = {}
 
 #machine list
-machines = {
-    "left_bowl": {"type": "bowl", "connect": "nanotec", "address": "192.168.125.233"},
-    "left_camera": {"type": "camera", "connect": "serial", "uart": 2, "baud": 115200},
-    "right_bowl": {"type": "bowl", "connect": "nanotec", "address": "192.168.125.234"},
-    "right_camera": {"type": "camera", "connect": "serial",  "uart": 5, "baud": 115200},
-    "scara": {"type": "robot", "connect": "karel", "address": "192.168.125.100"}
-}
+machines = [
+    #{"part": "left_bowl", "type": "bowl", "connect": "sock", "address": "192.168.126.x"},
+    #{"part": "left_camera", "type": "camera", "connect": "serial", "uart": 2, "baud": 115200},
+    #{"part": "right_bowl", "type": "bowl", "connect": "sock", "address": "192.168.126.x"},
+    #{"part": "right_camera", "type": "camera", "connect": "serial", "address": "uart2"},
+    #{"part": "scara", "type": "robot", "connect": "sock", "address": "192.168.125.100"}
+]
 
 #initialize dictionaries strange but works
-for key in machines:
-    item = machines[key]
-    add = {key:0}
+for item in machines:
+    add = {item["part"]:0}
     sm.update(add)
-
-
-async def blink(led):
-    while True:
-        led.on()
-        await uasyncio.sleep_ms(5)
-        led.off()
-        await uasyncio.sleep_ms(700)
+    if item["connect"] == "sock":
+        add = {item["part"]:None}
+        socks.update(add)
+    elif item["connect"] == "serial":
+        add = {item["part"]:None}
+        serials.update(add)
 
 #network connect
 def n_connect():
@@ -69,15 +64,9 @@ def n_check():
 #flash the green led
 def heartbeat():
     status.on()
-    time.sleep(0.01)
+    time.sleep(0.1)
     status.off()
-    time.sleep(0.01)
-
-def run():
-    work.on()
-    time.sleep(0.01)
-    work.off()
-    time.sleep(0.01)
+    time.sleep(0.1)
 
 #socket connection helper
 def s_connect(host, port, discover=False, part=None):
@@ -109,79 +98,106 @@ def s_init(part):
         error.on()
     sm[part["part"]]=10
 
+#UART establishing
+def u_init(part):
+    try:
+        add = {item["part"]:UART(item["uart"],item["baud"])}
+        serials.update(add)
+    except OSError:
+        #retry = retry + 1
+        sm[part]=13
+        err.append("%s UART issue."%part)
+        error.on()
+    sm[part]=10
+
+#UART check
+def u_check(part):
+    try:
+        ser = serials[part]
+        ser.write("\n")
+        r = ser.readline()
+        if r:
+            #check if response is valid json
+            ret = json.loads(r)
+            sm[part]=11
+    except OSError:
+        #retry = retry + 1
+        sm[part]=13
+        err.append("%s UART check issue."%part)
+        error.on()
+
 #Query camera via UART
 def u_get(part):
     ret = None
     try:
-        ser = machines[part]["obj"]
+        ser = serials[part]
         ser.write("\n")
         r = ser.readline()
         if r:
             ret = json.loads(r)
-    except ValueError:
-        err.append("%s UART parse issue."%part)
-        error.on()
     except OSError:
+        #retry = retry + 1
         err.append("%s UART get issue."%part)
         error.on()
     return ret
 
-####cleaned
-def machine_init(key = "all"):
-    if key == "all":
-        for key in machines:
-            try:
-                machine_init(key = key)
-            except OSError:
-                sm[key]=13
-                sm['system'] = 13
-                err.append("%s init issue."%key)
-                error.on()
-            sm['system'] = 12
-    else:
-        item = machines[key]
+#Initialize all listed machines
+def init_machines():
+    for item in machines:
         if item["connect"] == "sock":
-            #todo
-            pass
+            s_init(item)
         elif item["connect"] == "serial":
-            item["obj"]=UART(item["uart"], item["baud"])
-        elif item["connect"] == "karel":
-            item["obj"]=Scara(item["address"])
-        elif item["connect"] == "nanotec":
-            item["obj"]=Nanotec(item["address"])
-        sm[key]=10
+            u_init(item["part"])
+    sm["system"]=12
 
-def machine_check(key = "all"):
-    if key == "all":
-        for key in machines:
-            try:
-                machine_check(key = key)
-            except OSError:
-                sm[key]=13
-                sm['system'] = 13
-                err.append("%s check issue."%key)
-                error.on()
-            sm['system'] = 15
-    else:
-        item = machines[key]
+#Check all listed machines
+def check_machines():
+    #do checks
+    for item in machines:
         if item["connect"] == "sock":
             pass
         elif item["connect"] == "serial":
             pass
-        elif item["connect"] == "karel":
+            #u_check(item["part"])
+    #check results
+    good = True
+    for item in machines:
+        if sm[item["part"]]==11:
+            #all should be 11
             pass
-        elif item["connect"] == "nanotec":
-            pass
-        sm[key]=11
+        else:
+            good = False
+    if good:
+        sm["system"]=15
+    else:
+        pass
+        #todo recheck??
+        #retry = retry + 1
+        #sm["system"]=13
 
-def machine_run():
-    run()
-    robot = machines["scara"]["obj"]
-    try:
-        #robot.home()
-        print(u_get("left_camera"))
-    except OSError:
-        print("move failed")
+def run_machines():
+    print(u_get("left_camera"))
+
+def get_flag():
+    res = requests.get('%s/MD/NUMREG.VA'%robot_addr)
+    lines = res.text
+    res.close()
+    pos= lines.find("[15]")
+    return lines[pos+7:pos+8]
+
+def set_pos(x, y, angle):
+    #X
+    r = requests.get('%s/karel/ComSet?sValue=%s&sIndx=11&sRealFlag=2&sFc=2'%(robot_addr, x))
+    r.close()
+    #Y
+    r = requests.get('%s/karel/ComSet?sValue=%s&sIndx=12&sRealFlag=2&sFc=2'%(robot_addr, y))
+    r.close()
+    #kąt
+    r = requests.get('%s/karel/ComSet?sValue=%s&sIndx=14&sRealFlag=2&sFc=2'%(robot_addr, angle))
+    r.close()
+    #flaga
+    r = requests.get('%s/karel/ComSet?sValue=2&sIndx=15&sRealFlag=-1&sFc=2'%robot_addr)
+    r.close()
 
 #print initial state machine
 print(sm)
@@ -201,13 +217,13 @@ while True:
         n_check()
     elif sm["system"]==11:
         hint = "network ready -> init machines"
-        machine_init()
+        init_machines()
     elif sm["system"]==12:
         hint = "machines init -> check machines"
-        machine_check()
+        check_machines()
     elif sm["system"]==15:
         hint = "machines ready -> run machines"
-        machine_run()
+        run_machines()
     else:
         hint = "no such state -> error state"
         sm['system'] = 13
@@ -216,7 +232,7 @@ while True:
     sm["hint"] = hint
     #sm["retry"] = retry
     print(sm)
-    time.sleep(pause)
+    time.sleep(0.3)
 
 #dump
 print("\n:( Something went wrong.")
