@@ -5,6 +5,7 @@ ser = UART(3, 115200)
 led = LED(1)
 while True:
     if ser.any():
+    #if True:
         buf = ser.readline()
         led.on()
         ser.write('{"foo":"bar"}')

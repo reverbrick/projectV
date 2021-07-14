@@ -1,3 +1,4 @@
+#Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Górny at dadmin.dgor@gmail.com
 import urequests as requests
 
 class Scara():
