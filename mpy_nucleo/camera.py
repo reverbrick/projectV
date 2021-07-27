@@ -23,8 +23,8 @@ class H7():
             self.sock.write("\n")
             time.sleep(0.8)
             r = str(self.sock.readline())
-            print(r)
-            m = re.search(r"\{(.*?)\}",r)
+            #print(r)
+            m = re.search(r"\[(.*?)\]",r)
             if m:
                 r = m.group(0)
             if r:

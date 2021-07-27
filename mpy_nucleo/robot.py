@@ -11,7 +11,7 @@ class Scara():
         res = requests.get('%s/MD/NUMREG.VA'%self.address)
         lines = res.text
         res.close()
-        pos= lines.find("[15]")
+        pos=lines.find("[15]")
         return lines[pos+7:pos+8]
 
     def karel_set_numreg(self, index, real, value):

@@ -98,12 +98,21 @@ def machine_check(key = "all"):
 
 def machine_run():
     run()
-    #robot = machines["scara"]["obj"]
     try:
-        pass
-        #robot.home()
+        #robot = machines["scara"]["obj"]
         l_cam = machines["left_camera"]["obj"]
-        print(l_cam.get())
+        l_bowl = machines["left_bowl"]["obj"]
+        #robot.home()
+        l_bowl.prog()
+        time.sleep(1.6)
+        positions = l_cam.get()
+        if positions:
+            for pos in positions:
+                print("going to: ", pos)
+                #robot.move(pos["x"],pos["y"],pos["angle"])
+    except KeyError:
+        #not all machines present
+        reset()
     except OSError:
         print("move failed")
 
@@ -136,6 +145,8 @@ def StateMachine():
         yield None
 
 TaskQueue = [ heartbeat(), StateMachine()]
+print("Waiting 5secs for everything to boot up.")
+time.sleep(5)
 print(sm)
 #main loop
 while True:

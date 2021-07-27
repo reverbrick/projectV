@@ -1,0 +1,42 @@
+Decoded dump of debug contents of section .debug_line:
+
+CU: C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen/types.h:
+File name                            Line number    Starting address
+
+CU: C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings/vmmcode.cpp:
+File name                            Line number    Starting address
+vmmcode.cpp                                    5           0x8008410
+vmmcode.cpp                                    7           0x8008416
+vmmcode.cpp                                   10           0x8008422
+vmmcode.cpp                                   13           0x800842e
+vmmcode.cpp                                   16           0x800843a
+vmmcode.cpp                                   19           0x8008446
+vmmcode.cpp                                   20           0x8008448
+vmmcode.cpp                                   19           0x800844c
+vmmcode.cpp                                   24           0x8008460
+vmmcode.cpp                                   27           0x800846c
+vmmcode.cpp                                   28           0x800846e
+vmmcode.cpp                                   27           0x8008472
+vmmcode.cpp                                   32           0x8008486
+vmmcode.cpp                                   35           0x8008492
+vmmcode.cpp                                   36           0x8008494
+vmmcode.cpp                                   35           0x8008498
+vmmcode.cpp                                   40           0x80084ac
+vmmcode.cpp                                   41           0x80084c4
+vmmcode.cpp                                   42           0x80084ca
+vmmcode.cpp                                   43           0x80084e6
+vmmcode.cpp                                   44           0x80084ec
+vmmcode.cpp                                   45           0x8008504
+vmmcode.cpp                                   46           0x800850a
+vmmcode.cpp                                   47           0x8008526
+vmmcode.cpp                                   48           0x800852c
+vmmcode.cpp                                   49           0x800853c
+vmmcode.cpp                                   50           0x8008544
+vmmcode.cpp                                   51           0x8008550
+vmmcode.cpp                                   52           0x8008558
+vmmcode.cpp                                   53           0x8008568
+vmmcode.cpp                                   54           0x8008570
+vmmcode.cpp                                   57           0x800857c
+vmmcode.cpp                                   61           0x8008588
+vmmcode.cpp                                   62           0x8008594
+

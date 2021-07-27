@@ -1,0 +1,368 @@
+ARM GAS  C:\windows\ccTO2LNg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"mapping.cxx"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	In
+  19              		.section	.inputs,"aw",%progbits
+  20              		.align	2
+  23              	In:
+  24 0000 0000     		.space	2
+  25              		.global	Out
+  26 0002 0000     		.section	.outputs,"aw",%progbits
+  27              		.align	2
+  30              	Out:
+  31 0000 00000000 		.space	4
+  32              		.text
+  33              	.Letext0:
+  34              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\types.h"
+  35              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\mapping.h"
+  36              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\mapping.cxx"
+ARM GAS  C:\windows\ccTO2LNg.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 mapping.cxx
+C:\windows\ccTO2LNg.s:23     .inputs:00000000 In
+C:\windows\ccTO2LNg.s:20     .inputs:00000000 $d
+C:\windows\ccTO2LNg.s:30     .outputs:00000000 Out
+C:\windows\ccTO2LNg.s:27     .outputs:00000000 $d
+
+NO UNDEFINED SYMBOLS
+ARM GAS  C:\windows\ccTO2LNg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"vmmcode.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z4userv,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z4userv
+  21              		.thumb
+  22              		.thumb_func
+  24              	_Z4userv:
+  25              	.LFB0:
+  26              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\mappings\\vmmcode
+   1:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** // map U16 StatusWord as input 0x6041:00
+   2:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** // map U32 Outputs as output 0x60FE:01
+   3:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** #include "wrapper.h"
+   4:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** void user()
+   5:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** {
+  27              		.loc 1 5 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 7, -8
+  34              		.cfi_offset 14, -4
+  35 0002 82B0     		sub	sp, sp, #8
+  36              		.cfi_def_cfa_offset 16
+  37 0004 00AF     		add	r7, sp, #0
+  38              		.cfi_def_cfa_register 7
+  39              	.LBB2:
+   6:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Set mode "Profile velocity"
+   7:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x6060, 0x00, 3);
+  40              		.loc 1 7 0
+  41 0006 46F26000 		movw	r0, #24672
+  42 000a 0021     		movs	r1, #0
+  43 000c 0322     		movs	r2, #3
+  44 000e FFF7FEFF 		bl	od_write
+   8:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+   9:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Remember target velocity 
+  10:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	U32 targetVelocity = od_read(0x60FF, 0x00);
+  45              		.loc 1 10 0
+  46 0012 46F2FF00 		movw	r0, #24831
+  47 0016 0021     		movs	r1, #0
+  48 0018 FFF7FEFF 		bl	od_read
+ARM GAS  C:\windows\ccTO2LNg.s 			page 2
+
+
+  49 001c 7860     		str	r0, [r7, #4]
+  11:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  12:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Set the target velocity
+  13:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x60FF, 0x00, targetVelocity);
+  50              		.loc 1 13 0
+  51 001e 46F2FF00 		movw	r0, #24831
+  52 0022 0021     		movs	r1, #0
+  53 0024 7A68     		ldr	r2, [r7, #4]
+  54 0026 FFF7FEFF 		bl	od_write
+  14:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  15:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp ****  	// Request state "Ready to switch on"
+  16:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x6040, 0x00, 0x6);
+  55              		.loc 1 16 0
+  56 002a 46F24000 		movw	r0, #24640
+  57 002e 0021     		movs	r1, #0
+  58 0030 0622     		movs	r2, #6
+  59 0032 FFF7FEFF 		bl	od_write
+  17:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  18:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Wait until the requested state is reached
+  19:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	while ( (In.StatusWord & 0xEF) != 0x21) {
+  60              		.loc 1 19 0
+  61 0036 01E0     		b	.L2
+  62              	.L3:
+  20:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 		yield(); // Wait for the next cycle (1ms)
+  63              		.loc 1 20 0
+  64 0038 FFF7FEFF 		bl	yield
+  65              	.L2:
+  19:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 		yield(); // Wait for the next cycle (1ms)
+  66              		.loc 1 19 0 discriminator 1
+  67 003c 40F20003 		movw	r3, #:lower16:In
+  68 0040 C0F20003 		movt	r3, #:upper16:In
+  69 0044 1B88     		ldrh	r3, [r3]	@ unaligned
+  70 0046 9BB2     		uxth	r3, r3
+  71 0048 03F0EF03 		and	r3, r3, #239
+  72 004c 212B     		cmp	r3, #33
+  73 004e F3D1     		bne	.L3
+  21:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	}
+  22:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  23:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Request the state "Switched on"
+  24:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x6040, 0x00, 0x7);
+  74              		.loc 1 24 0
+  75 0050 46F24000 		movw	r0, #24640
+  76 0054 0021     		movs	r1, #0
+  77 0056 0722     		movs	r2, #7
+  78 0058 FFF7FEFF 		bl	od_write
+  25:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  26:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Wait until the requested state is reached
+  27:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	while ( (In.StatusWord & 0xEF) != 0x23) {
+  79              		.loc 1 27 0
+  80 005c 01E0     		b	.L4
+  81              	.L5:
+  28:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 		yield();
+  82              		.loc 1 28 0
+  83 005e FFF7FEFF 		bl	yield
+  84              	.L4:
+  27:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 		yield();
+  85              		.loc 1 27 0 discriminator 1
+ARM GAS  C:\windows\ccTO2LNg.s 			page 3
+
+
+  86 0062 40F20003 		movw	r3, #:lower16:In
+  87 0066 C0F20003 		movt	r3, #:upper16:In
+  88 006a 1B88     		ldrh	r3, [r3]	@ unaligned
+  89 006c 9BB2     		uxth	r3, r3
+  90 006e 03F0EF03 		and	r3, r3, #239
+  91 0072 232B     		cmp	r3, #35
+  92 0074 F3D1     		bne	.L5
+  29:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	}
+  30:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  31:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Request the state "Operation enabled"
+  32:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x6040, 0x00, 0xF);
+  93              		.loc 1 32 0
+  94 0076 46F24000 		movw	r0, #24640
+  95 007a 0021     		movs	r1, #0
+  96 007c 0F22     		movs	r2, #15
+  97 007e FFF7FEFF 		bl	od_write
+  33:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  34:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Wait until the requested state is reached
+  35:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	while ( (In.StatusWord & 0xEF) != 0x27) {
+  98              		.loc 1 35 0
+  99 0082 01E0     		b	.L6
+ 100              	.L7:
+  36:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 		yield();
+ 101              		.loc 1 36 0
+ 102 0084 FFF7FEFF 		bl	yield
+ 103              	.L6:
+  35:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 		yield();
+ 104              		.loc 1 35 0 discriminator 1
+ 105 0088 40F20003 		movw	r3, #:lower16:In
+ 106 008c C0F20003 		movt	r3, #:upper16:In
+ 107 0090 1B88     		ldrh	r3, [r3]	@ unaligned
+ 108 0092 9BB2     		uxth	r3, r3
+ 109 0094 03F0EF03 		and	r3, r3, #239
+ 110 0098 272B     		cmp	r3, #39
+ 111 009a F3D1     		bne	.L7
+  37:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	}
+  38:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  39:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Let the motor run for a while
+  40:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	Out.Outputs = 0x00000;
+ 112              		.loc 1 40 0
+ 113 009c 40F20003 		movw	r3, #:lower16:Out
+ 114 00a0 C0F20003 		movt	r3, #:upper16:Out
+ 115 00a4 0022     		movs	r2, #0
+ 116 00a6 1A70     		strb	r2, [r3]
+ 117 00a8 0022     		movs	r2, #0
+ 118 00aa 5A70     		strb	r2, [r3, #1]
+ 119 00ac 0022     		movs	r2, #0
+ 120 00ae 9A70     		strb	r2, [r3, #2]
+ 121 00b0 0022     		movs	r2, #0
+ 122 00b2 DA70     		strb	r2, [r3, #3]
+  41:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	sleep(50);
+ 123              		.loc 1 41 0
+ 124 00b4 3220     		movs	r0, #50
+ 125 00b6 FFF7FEFF 		bl	sleep
+  42:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	Out.Outputs = 0x10000;
+ 126              		.loc 1 42 0
+ 127 00ba 40F20003 		movw	r3, #:lower16:Out
+ARM GAS  C:\windows\ccTO2LNg.s 			page 4
+
+
+ 128 00be C0F20003 		movt	r3, #:upper16:Out
+ 129 00c2 0022     		movs	r2, #0
+ 130 00c4 1A70     		strb	r2, [r3]
+ 131 00c6 0022     		movs	r2, #0
+ 132 00c8 5A70     		strb	r2, [r3, #1]
+ 133 00ca 0022     		movs	r2, #0
+ 134 00cc 42F00102 		orr	r2, r2, #1
+ 135 00d0 9A70     		strb	r2, [r3, #2]
+ 136 00d2 0022     		movs	r2, #0
+ 137 00d4 DA70     		strb	r2, [r3, #3]
+  43:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	sleep(50);
+ 138              		.loc 1 43 0
+ 139 00d6 3220     		movs	r0, #50
+ 140 00d8 FFF7FEFF 		bl	sleep
+  44:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	Out.Outputs = 0x00000;
+ 141              		.loc 1 44 0
+ 142 00dc 40F20003 		movw	r3, #:lower16:Out
+ 143 00e0 C0F20003 		movt	r3, #:upper16:Out
+ 144 00e4 0022     		movs	r2, #0
+ 145 00e6 1A70     		strb	r2, [r3]
+ 146 00e8 0022     		movs	r2, #0
+ 147 00ea 5A70     		strb	r2, [r3, #1]
+ 148 00ec 0022     		movs	r2, #0
+ 149 00ee 9A70     		strb	r2, [r3, #2]
+ 150 00f0 0022     		movs	r2, #0
+ 151 00f2 DA70     		strb	r2, [r3, #3]
+  45:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	sleep(50);
+ 152              		.loc 1 45 0
+ 153 00f4 3220     		movs	r0, #50
+ 154 00f6 FFF7FEFF 		bl	sleep
+  46:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	Out.Outputs = 0x10000;	
+ 155              		.loc 1 46 0
+ 156 00fa 40F20003 		movw	r3, #:lower16:Out
+ 157 00fe C0F20003 		movt	r3, #:upper16:Out
+ 158 0102 0022     		movs	r2, #0
+ 159 0104 1A70     		strb	r2, [r3]
+ 160 0106 0022     		movs	r2, #0
+ 161 0108 5A70     		strb	r2, [r3, #1]
+ 162 010a 0022     		movs	r2, #0
+ 163 010c 42F00102 		orr	r2, r2, #1
+ 164 0110 9A70     		strb	r2, [r3, #2]
+ 165 0112 0022     		movs	r2, #0
+ 166 0114 DA70     		strb	r2, [r3, #3]
+  47:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	sleep(200);
+ 167              		.loc 1 47 0
+ 168 0116 C820     		movs	r0, #200
+ 169 0118 FFF7FEFF 		bl	sleep
+  48:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x60FF, 0x00, targetVelocity*-1);
+ 170              		.loc 1 48 0
+ 171 011c 7B68     		ldr	r3, [r7, #4]
+ 172 011e 5B42     		negs	r3, r3
+ 173 0120 46F2FF00 		movw	r0, #24831
+ 174 0124 0021     		movs	r1, #0
+ 175 0126 1A46     		mov	r2, r3
+ 176 0128 FFF7FEFF 		bl	od_write
+  49:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	sleep(300);
+ 177              		.loc 1 49 0
+ARM GAS  C:\windows\ccTO2LNg.s 			page 5
+
+
+ 178 012c 4FF49670 		mov	r0, #300
+ 179 0130 FFF7FEFF 		bl	sleep
+  50:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x60FF, 0x00, targetVelocity);
+ 180              		.loc 1 50 0
+ 181 0134 46F2FF00 		movw	r0, #24831
+ 182 0138 0021     		movs	r1, #0
+ 183 013a 7A68     		ldr	r2, [r7, #4]
+ 184 013c FFF7FEFF 		bl	od_write
+  51:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	sleep(300);
+ 185              		.loc 1 51 0
+ 186 0140 4FF49670 		mov	r0, #300
+ 187 0144 FFF7FEFF 		bl	sleep
+  52:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x60FF, 0x00, targetVelocity*-1);
+ 188              		.loc 1 52 0
+ 189 0148 7B68     		ldr	r3, [r7, #4]
+ 190 014a 5B42     		negs	r3, r3
+ 191 014c 46F2FF00 		movw	r0, #24831
+ 192 0150 0021     		movs	r1, #0
+ 193 0152 1A46     		mov	r2, r3
+ 194 0154 FFF7FEFF 		bl	od_write
+  53:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	sleep(600);
+ 195              		.loc 1 53 0
+ 196 0158 4FF41670 		mov	r0, #600
+ 197 015c FFF7FEFF 		bl	sleep
+  54:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x60FF, 0x00, targetVelocity);
+ 198              		.loc 1 54 0
+ 199 0160 46F2FF00 		movw	r0, #24831
+ 200 0164 0021     		movs	r1, #0
+ 201 0166 7A68     		ldr	r2, [r7, #4]
+ 202 0168 FFF7FEFF 		bl	od_write
+  55:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  56:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Stop the motor
+  57:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x6040, 0x00, 0x0);
+ 203              		.loc 1 57 0
+ 204 016c 46F24000 		movw	r0, #24640
+ 205 0170 0021     		movs	r1, #0
+ 206 0172 0022     		movs	r2, #0
+ 207 0174 FFF7FEFF 		bl	od_write
+  58:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 
+  59:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// Stop the NanoJ program. Without this line, the firmware would
+  60:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	// call user() again as soon as we return.
+  61:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** 	od_write(0x2300, 0x00, 0x0);
+ 208              		.loc 1 61 0
+ 209 0178 4FF40C50 		mov	r0, #8960
+ 210 017c 0021     		movs	r1, #0
+ 211 017e 0022     		movs	r2, #0
+ 212 0180 FFF7FEFF 		bl	od_write
+ 213              	.LBE2:
+  62:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\vmmcode.cpp **** }
+ 214              		.loc 1 62 0
+ 215 0184 0837     		adds	r7, r7, #8
+ 216 0186 BD46     		mov	sp, r7
+ 217              		@ sp needed
+ 218 0188 80BD     		pop	{r7, pc}
+ 219              		.cfi_endproc
+ 220              	.LFE0:
+ 222 018a 00BF     		.text
+ARM GAS  C:\windows\ccTO2LNg.s 			page 6
+
+
+ 223              	.Letext0:
+ 224              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen/types.h"
+ 225              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen/mapping.h"
+ARM GAS  C:\windows\ccTO2LNg.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 vmmcode.cpp
+C:\windows\ccTO2LNg.s:19     .text._Z4userv:00000000 $t
+C:\windows\ccTO2LNg.s:24     .text._Z4userv:00000000 _Z4userv
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+od_write
+od_read
+yield
+In
+Out
+sleep

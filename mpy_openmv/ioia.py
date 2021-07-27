@@ -51,18 +51,25 @@ class Flash():
 
 
 class Velux():
-    import math
+    import math, json
     def distance(self,x1,y1,x2,y2):
         return self.math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
-    def plastic(self, img, threshold=(103, 255), close=3, min=2300, max=4000, debug=False, ratio=0.73):
-        ret = {}
+    def plastic(self, img, threshold=(103, 255), close=0, erode=0, dilate=0, min=2300, max=4000, debug=False, ratio=0.73):
+        out = []
         #img.mask_circle([130,470,450])
         #img.draw_circle([120,480,80], color=(0,0,0),fill=True)
         img.binary([threshold])
-        img.close(close)
+        if close!=0:
+            img.close(close)
+        else:
+            if dilate!=0:
+                img.dilate(dilate)
+            if erode!=0:
+                img.erode(erode)
         for b in img.find_blobs([(255,255)], pixels_threshold=min, merge=False):
             if b.pixels()<max:
+                ret = {}
                 #print(b.pixels())
                 #blob rotation
                 l = b.major_axis_line()
@@ -85,10 +92,11 @@ class Velux():
                 #    angle=angle+360
                 if angle>180:
                     angle=angle-360
-                ret['angle']=angle
+                ret['angle']=round(angle,5)
+                out.append(ret)
         if debug:
             img.save("debug.jpg")
-        return ret
+        return self.json.dumps(out)
 
     def metal(self, img, threshold, single=False):
         ret = {'items':[]}
