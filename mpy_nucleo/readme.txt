@@ -1,7 +1,11 @@
 #works only on NUCLEO_F767ZI
 
-#building with ethernet support
-make -C ports/stm32 MICROPY_HW_ENABLE_ETH_RMII=1 BOARD=NUCLEO_F767ZI
+#building cross compiler
+make -C mpy-cross
+
+cd ports/stm32
+make submodules
+make
 
 #flashing using stlink
 make -C ports/stm32 MICROPY_HW_ENABLE_ETH_RMII=1 BOARD=NUCLEO_F767ZI deploy-stlink

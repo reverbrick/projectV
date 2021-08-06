@@ -1,14 +1,14 @@
 #Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Górny at dadmin.dgor@gmail.com
 #refer to states.txt for state machine explanations
-import network, time
+import time
 import utelnet.utelnetserver as telnet
 from machine import reset
 from robot import Scara
 from stepper import Nanotec
 from camera import H7
 from common import heartbeat, run, error
+import uasyncio as asyncio
 
-net = network.LAN()
 pause = 0.5
 retry = 0
 max_retry = 10
@@ -35,25 +35,6 @@ for key in machines:
     item = machines[key]
     add = {key:0}
     sm.update(add)
-
-#network connect
-def n_connect():
-    try:
-        net.active(True)
-        #net.ifconfig('dhcp')
-        net.ifconfig(('192.168.125.110', '255.255.255.0', '192.168.125.1', '8.8.8.8'))
-    except OSError:
-        #retry = retry + 1
-        err.append("DHCP timeout, will retry.")
-        #error.on()
-    sm['system']=10
-
-#network check
-def n_check():
-    if net.isconnected():
-        telnet.start()
-        log.append("Net address: %s"%str(net.ifconfig()))
-        sm['system'] = 11
 
 ####cleaned
 def machine_init(key = "all"):
@@ -121,43 +102,28 @@ def machine_run():
     except OSError:
         print("move failed")
 
-#print initial state machine
-def StateMachine():
-    while True:
-        if sm["system"] == 0:
-            hint = "initialized -> connect network"
-            n_connect()
-        elif sm["system"]==10:
-            hint = "network connected -> check network"
-            n_check()
-        elif sm["system"]==11:
-            hint = "network ready -> init machines"
-            machine_init()
-        elif sm["system"]==12:
-            hint = "machines init -> check machines"
-            machine_check()
-        elif sm["system"]==15:
-            hint = "machines ready -> run machines"
-            machine_run()
-        else:
-            hint = "no such state -> error state"
-            sm['system'] = 13
-            #error.on()
-            TaskQueue = [ error() ]
-        sm["hint"] = hint
-        #sm["retry"] = retry
-        print(sm)
-        yield None
-
-TaskQueue = [ heartbeat(), StateMachine()]
-#print("Waiting 5secs for everything to boot up.")
-#time.sleep(5)
 print(sm)
-#main loop
-while sm["system"]!=15:
-    for task in TaskQueue:
-        next(task)
-    time.sleep(pause)
+
+def print_http_headers(url):
+    reader, writer = yield from asyncio.open_connection(url, 80)
+    print("================")
+    query = "GET / HTTP/1.0\r\n\r\n"
+    yield from writer.awrite(query.encode('latin-1'))
+    while True:
+        line = yield from reader.readline()
+        if not line:
+            break
+        if line:
+            print(line.rstrip())
+    print(dir(asyncio))
+
+loop = asyncio.get_event_loop()
+#task = asyncio.async(print_http_headers(url))
+#loop.run_until_complete(task)
+#loop.run_until_complete(print_http_headers("192.168.125.112"))
+loop.run_until_complete(machine_init())
+
+loop.close()
 
 #dump
 #print("\n:( Something went wrong.")

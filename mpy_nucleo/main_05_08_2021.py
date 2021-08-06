@@ -19,14 +19,12 @@ sm = {"hint": hint, "system": 0}
 socks = {}
 serials = {}
 
-#interface = rpc.rpc_wifi_or_ethernet_master("192.168.125.111")
-
 #machine list
 machines = {
-    "left_camera": {"type": "camera", "address": "192.168.125.111", "port": 10001},
-    "left_bowl": {"type": "bowl", "address": "192.168.125.112"},
-    #"right_camera": {"type": "camera", "address": "192.168.125.121", "port": 10001},
-    #"right_bowl": {"type": "bowl", "address": "192.168.125.122"},
+    "left_bowl": {"type": "bowl", "address": "192.168.125.233"},
+    "left_camera": {"type": "camera", "address": "192.168.125.150", "port": 10001},
+    #"right_bowl": {"type": "bowl","address": "192.168.125.234"},
+    #"right_camera": {"type": "camera", "uart": 5, "baud": 115200},
     #"scara": {"type": "robot", "address": "192.168.125.100"}
 }
 
@@ -41,7 +39,7 @@ def n_connect():
     try:
         net.active(True)
         #net.ifconfig('dhcp')
-        net.ifconfig(('192.168.125.110', '255.255.255.0', '192.168.125.1', '8.8.8.8'))
+        net.ifconfig(('192.168.125.125', '255.255.255.0', '192.168.125.1', '8.8.8.8'))
     except OSError:
         #retry = retry + 1
         err.append("DHCP timeout, will retry.")
@@ -98,15 +96,12 @@ def machine_check(key = "all"):
             item["obj"].ready()
         sm[key]=11
 
-def machine(item):
-    return machines[item]["obj"]
-
 def machine_run():
     run()
     try:
         #robot = machines["scara"]["obj"]
-        l_cam = machine("left_camera")
-        l_bowl = machine("left_bowl")
+        l_cam = machines["left_camera"]["obj"]
+        l_bowl = machines["left_bowl"]["obj"]
         #robot.home()
         l_bowl.prog()
         time.sleep(1.6)
@@ -150,20 +145,20 @@ def StateMachine():
         yield None
 
 TaskQueue = [ heartbeat(), StateMachine()]
-#print("Waiting 5secs for everything to boot up.")
-#time.sleep(5)
+print("Waiting 5secs for everything to boot up.")
+time.sleep(5)
 print(sm)
 #main loop
-while sm["system"]!=15:
+while True:
     for task in TaskQueue:
         next(task)
     time.sleep(pause)
 
 #dump
-#print("\n:( Something went wrong.")
-#print("\nSystem errors:\n", err)
-#print("\nSystem log:\n", log)
-#print("\n\n")
+print("\n:( Something went wrong.")
+print("\nSystem errors:\n", err)
+print("\nSystem log:\n", log)
+print("\n\n")
 
 #todo cleanup / restart
-#reset()
+reset()
