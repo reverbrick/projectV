@@ -10,11 +10,11 @@ class Nanotec():
         return str("0x%s"%("00000000%x"%(n&0xffffffff))[-8:]).upper()[2:]
 
     def command(self, addr, val):
-        #os.system("""curl -H "Content-Type: application/x-www-form-urlencoded" -d '"%s"' -X POST  %s/od/%s"""%(val,self.host,addr))
         #todo fix content lenfth
         req = b'POST /od/%s HTTP/1.1\r\nHost: %s\r\nUser-Agent: IOIA\r\nAccept: */*\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 10\r\n\r\n"%s" = '%(addr,self.host,val)
         address = (self.host, 80)
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(5.0)
         sock.connect(address)
         sock.send(req)
         sock.close()

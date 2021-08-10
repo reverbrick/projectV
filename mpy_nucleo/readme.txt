@@ -15,8 +15,7 @@ screen /dev/ttyACM0 115200
 
 #repl comment here:
 lib/utils/pyexec.c
-#it exists twice.
-mp_hal_stdout_tx_str("Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Górny at dadmin.dgor@gmail.com\r\n");
+mp_hal_stdout_tx_str("Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Gorny at dadmin.dgor@gmail.com\r\n");
 
 #recover if bad things happen
 st-flash erase

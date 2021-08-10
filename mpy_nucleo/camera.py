@@ -1,34 +1,26 @@
 #Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Górny at dadmin.dgor@gmail.com
 import socket, json, re, time
+from comms import send_msg, recv_msg
 
 class H7():
-    sock = None
+    host = None
+    port = None
     def __init__(self, host, port):
-        self.connect(host, port)
-
-    #socket connection helper
-    def connect(self, host, port, discover=False):
-        self.sock = socket.socket()
-        if discover:
-            ai = socket.getaddrinfo(host, port)
-            addr = ai[0][-1]
-        else:
-            addr = (host, port)
-        self.sock.connect(addr)
-        self.sock.setblocking(False)
+        self.host = host
+        self.port = port
 
     def get(self):
-        ret = None
-        try:
-            self.sock.write("\n")
-            time.sleep(0.8)
-            r = str(self.sock.readline())
-            #print(r)
+        ret = []
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(5.0)
+        sock.connect((self.host, self.port))
+        send_msg(sock,b"snap")
+        r = str(recv_msg(sock))
+        if r!=None:
             m = re.search(r"\[(.*?)\]",r)
             if m:
                 r = m.group(0)
-            if r:
-                ret = json.loads(r)
-        except:
-            pass
+                if r:
+                    ret = json.loads(r)
+        sock.close()
         return ret

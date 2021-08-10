@@ -1,41 +1,29 @@
-class mpy():
+#Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Górny at dadmin.dgor@gmail.com
+import struct
 
-    def __init__(self, sock):
-        self.sock = sock
+def send_msg(sock, msg):
+    # Prefix each message with a 4-byte length (network byte order)
+    msg = struct.pack('>I', len(msg)) + msg
+    sock.sendall(msg)
 
-    def enter_raw_repl(self, soft_reset=True):
-        try:
-            self.sock.write(b"\r\x03\x03")  # ctrl-C twice: interrupt any running program
+def recv_msg(sock):
+    # Read message length and unpack it into an integer
+    raw_msglen = recvall(sock, 4)
+    if not raw_msglen:
+        return None
+    msglen = struct.unpack('>I', raw_msglen)[0]
+    # Read the message data
+    return recvall(sock, msglen)
 
-            # flush input (without relying on serial.flushInput())
-            n = self.sock.inWaiting()
-            while n > 0:
-                self.sock.read(n)
-                n = self.sock.inWaiting()
-
-            self.sock.write(b"\r\x01")  # ctrl-A: enter raw REPL
-
-            if soft_reset:
-                data = self.read_until(1, b"raw REPL; CTRL-B to exit\r\n>")
-                if not data.endswith(b"raw REPL; CTRL-B to exit\r\n>"):
-                    print(data)
-                    raise CommsError("could not enter raw repl")
-
-                self.sock.write(b"\x04")  # ctrl-D: soft reset
-
-                # Waiting for "soft reboot" independently to "raw REPL" (done below)
-                # allows boot.py to print, which will show up after "soft reboot"
-                # and before "raw REPL".
-                data = self.read_until(1, b"soft reboot\r\n")
-                if not data.endswith(b"soft reboot\r\n"):
-                    print(data)
-                    raise CommsError("could not enter raw repl")
-
-            data = self.read_until(1, b"raw REPL; CTRL-B to exit\r\n")
-            if not data.endswith(b"raw REPL; CTRL-B to exit\r\n"):
-                print(data)
-                raise CommsError("could not enter raw repl")
-
-            self.in_raw_repl = True
-        except CommsError:
-            print("comms error")
+def recvall(sock, n):
+    # Helper function to recv n bytes or return None if EOF is hit
+    data = bytearray()
+    try:
+        while len(data) < n:
+            packet = sock.recv(n - len(data))
+            if not packet:
+                return None
+            data.extend(packet)
+    except OSError:
+        pass
+    return data
