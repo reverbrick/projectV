@@ -154,7 +154,7 @@ TaskQueue = [ heartbeat(), StateMachine()]
 #time.sleep(5)
 print(sm)
 #main loop
-while sm["system"]!=15:
+while sm["system"]!=13:
     for task in TaskQueue:
         next(task)
     time.sleep(pause)

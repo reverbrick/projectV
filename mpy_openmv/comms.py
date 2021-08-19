@@ -1,3 +1,5 @@
+import struct
+
 def send_msg(ser, msg):
     # Prefix each message with a 4-byte length (network byte order)
     msg = struct.pack('>I', len(msg)) + msg
@@ -15,9 +17,12 @@ def recv_msg(ser):
 def recvall(ser, n):
     # Helper function to recv n bytes or return None if EOF is hit
     data = bytearray()
-    while len(data) < n:
-        packet = ser.read(n - len(data))
-        if not packet:
-            return None
-        data.extend(packet)
+    try:
+        while len(data) < n:
+            packet = ser.read(n - len(data))
+            if not packet:
+                return None
+            data.extend(packet)
+    except MemoryError:
+        pass
     return data

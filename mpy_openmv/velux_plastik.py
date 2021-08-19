@@ -3,7 +3,7 @@ from pyb import Pin
 
 #params
 delay = 0.8
-threshold = (103, 255)
+threshold = (77, 255)
 ratio=0.73
 #ratio=1.35
 
@@ -12,7 +12,8 @@ def distance(x1,y1,x2,y2):
 
 def blobs(img, threshold):
     ret = {}
-    for b in img.find_blobs([(255,255)], pixels_threshold=2300, merge=False):
+    for b in img.find_blobs([(77,255)], pixels_threshold=2300, merge=True):
+        img.draw_edges(b.corners())
         if b.pixels()<4000:
             #print(b.pixels())
             #blob rotation
@@ -45,8 +46,8 @@ sensor.reset()
 #sensor.set_jb_quality(95)
 sensor.set_pixformat(sensor.GRAYSCALE)
 #sensor.set_pixformat(sensor.RGB565)
-sensor.set_framesize(sensor.VGA)
-sensor.set_auto_exposure(False, exposure_us=4000)
+sensor.set_framesize(sensor.SVGA)
+sensor.set_auto_exposure(False, exposure_us=30000)
 #sensor.set_auto_exposure(True)
 sensor.set_auto_gain(False)  # must turn this off to prevent image washout...
 sensor.set_auto_whitebal(False)  # must turn this off to prevent image washout...
@@ -59,17 +60,17 @@ def get(threshold=threshold):
     start = time.ticks_ms()
     #leds.on()
     pin0.value(1)
-    time.sleep(0.2)
+    #time.sleep(0.1)
     img = sensor.snapshot()
-    time.sleep(0.1)
+    #time.sleep(0.1)
     pin0.value(0)
-    img.draw_cross(320, 240, color=(255,255,255),thickness=1)
+    #img.draw_cross(320, 240, color=(255,255,255),thickness=1)
     #leds.off()
-    if False:
-        img.mask_circle([130,470,450])
-        img.draw_circle([120,480,80], color=(0,0,0),fill=True)
-        img.binary([threshold])
-        img.close(3)
+    if True:
+        #img.mask_circle([130,470,450])
+        #img.draw_circle([120,480,80], color=(0,0,0),fill=True)
+        #img.binary([threshold])
+        #img.close(3)
         ret = blobs(img, threshold)
     print(sensor.get_exposure_us())
     #print(sensor.get_gain_db())

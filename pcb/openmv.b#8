@@ -523,12 +523,43 @@ Source: http://www.lantronix.com/pdf/XPort_DS.pdf</description>
 <text x="-1.375" y="-3.25" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-2" y1="-1.5" x2="2" y2="-1.125" layer="21"/>
 </package>
+<package name="53047-04" urn="urn:adsk.eagle:footprint:8078150/1" library_version="5">
+<description>&lt;b&gt;1.25mm Pitch PicoBlade™ Wire-to-Board Header, Vertical, with Friction Lock, 4 Circuits&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/530470410_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
+<wire x1="-3.275" y1="-1.5" x2="3.275" y2="-1.5" width="0.2032" layer="21"/>
+<wire x1="3.275" y1="-1.5" x2="3.275" y2="1.5" width="0.2032" layer="21"/>
+<wire x1="3.275" y1="1.5" x2="-3.275" y2="1.5" width="0.2032" layer="21"/>
+<wire x1="-3.275" y1="1.5" x2="-3.275" y2="-1.5" width="0.2032" layer="21"/>
+<wire x1="-3.25" y1="-0.25" x2="-2.875" y2="-0.25" width="0.0508" layer="21"/>
+<wire x1="-2.875" y1="-0.25" x2="-2.875" y2="-1.25" width="0.0508" layer="21"/>
+<wire x1="2.875" y1="-0.25" x2="3.25" y2="-0.25" width="0.0508" layer="21"/>
+<wire x1="2.875" y1="-0.25" x2="2.875" y2="-1.25" width="0.0508" layer="21"/>
+<wire x1="-3.25" y1="0.375" x2="-2.875" y2="0.375" width="0.0508" layer="21"/>
+<wire x1="2.875" y1="0.375" x2="3.25" y2="0.375" width="0.0508" layer="21"/>
+<wire x1="-2.875" y1="0.375" x2="-2.875" y2="1.125" width="0.0508" layer="21"/>
+<wire x1="-2.875" y1="1.125" x2="2.875" y2="1.125" width="0.0508" layer="21"/>
+<wire x1="2.875" y1="1.125" x2="2.875" y2="0.375" width="0.0508" layer="21"/>
+<wire x1="2.875" y1="1.125" x2="3.125" y2="1.375" width="0.0508" layer="21"/>
+<wire x1="-2.875" y1="1.125" x2="-3.125" y2="1.375" width="0.0508" layer="21"/>
+<pad name="1" x="1.875" y="0.45" drill="0.5" diameter="0.6984" shape="long" rot="R90"/>
+<pad name="2" x="0.625" y="0.45" drill="0.5" diameter="0.6984" shape="long" rot="R90"/>
+<pad name="3" x="-0.625" y="0.45" drill="0.5" diameter="0.6984" shape="long" rot="R90"/>
+<pad name="4" x="-1.875" y="0.45" drill="0.5" diameter="0.6984" shape="long" rot="R90"/>
+<text x="-3.125" y="1.75" size="1.27" layer="25">&gt;NAME</text>
+<text x="-2.625" y="-3.25" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-3.25" y1="-1.5" x2="3.25" y2="-1.125" layer="21"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="53047-02" urn="urn:adsk.eagle:package:8078511/1" type="box" library_version="5">
 <description>&lt;b&gt;1.25mm Pitch PicoBlade™ Wire-to-Board Header, Vertical, with Friction Lock, 2 Circuits&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/530470210_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
 <packageinstances>
 <packageinstance name="53047-02"/>
+</packageinstances>
+</package3d>
+<package3d name="53047-04" urn="urn:adsk.eagle:package:8078513/1" type="box" library_version="5">
+<description>&lt;b&gt;1.25mm Pitch PicoBlade™ Wire-to-Board Header, Vertical, with Friction Lock, 4 Circuits&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/530470410_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
+<packageinstances>
+<packageinstance name="53047-04"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -744,9 +775,9 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="NAME" x="0.665" y="25.245" size="1.27" layer="25"/>
 <attribute name="VALUE" x="1.165" y="20.245" size="1.27" layer="27"/>
 </element>
-<element name="STR" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="53047-02" package3d_urn="urn:adsk.eagle:package:8078511/1" value="" x="33.274" y="23.495" smashed="yes">
-<attribute name="NAME" x="31.399" y="25.245" size="1.27" layer="25"/>
-<attribute name="VALUE" x="31.899" y="20.245" size="1.27" layer="27"/>
+<element name="IO" library="con-molex" library_urn="urn:adsk.eagle:library:165" package="53047-04" package3d_urn="urn:adsk.eagle:package:8078513/1" value="" x="32.131" y="23.622" smashed="yes">
+<attribute name="NAME" x="29.006" y="25.372" size="1.27" layer="25"/>
+<attribute name="VALUE" x="29.506" y="20.372" size="1.27" layer="27"/>
 </element>
 </elements>
 <signals>
@@ -767,8 +798,8 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="DC-DC5V" pad="OUT-.2"/>
 <contactref element="DC-DC5V" pad="OUT-.1"/>
 <contactref element="XPORT" pad="8"/>
-<contactref element="STR" pad="1"/>
-<wire x1="26.924" y1="21.717" x2="33.899" y2="23.945" width="0" layer="19" extent="1-1"/>
+<contactref element="IO" pad="1"/>
+<wire x1="26.924" y1="21.717" x2="34.006" y2="24.072" width="0" layer="19" extent="1-1"/>
 <wire x1="26.924" y1="19.177" x2="26.924" y2="21.717" width="0" layer="19" extent="1-1"/>
 <wire x1="22.098" y1="9.906" x2="26.924" y2="19.177" width="0" layer="19" extent="1-1"/>
 <wire x1="33.909" y1="1.524" x2="22.098" y2="9.906" width="0" layer="19" extent="1-1"/>
@@ -782,17 +813,27 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="SDA">
 <contactref element="U$2" pad="16"/>
 <contactref element="XPORT" pad="5"/>
-<wire x1="1.651" y1="6.604" x2="18.288" y2="12.446" width="0" layer="19" extent="1-1"/>
+<wire x1="1.651" y1="6.604" x2="2.54" y2="5.715" width="0.3048" layer="1"/>
+<wire x1="15.748" y1="5.715" x2="18.288" y2="8.255" width="0.3048" layer="1"/>
+<wire x1="18.288" y1="8.255" x2="18.288" y2="12.446" width="0.3048" layer="1"/>
+<wire x1="2.54" y1="5.715" x2="15.748" y2="5.715" width="0.3048" layer="1"/>
 </signal>
 <signal name="SCL">
 <contactref element="U$2" pad="15"/>
 <contactref element="XPORT" pad="4"/>
-<wire x1="1.651" y1="9.144" x2="17.018" y2="9.906" width="0" layer="19" extent="1-1"/>
+<wire x1="1.651" y1="9.144" x2="4.191" y2="6.604" width="0.3048" layer="1"/>
+<wire x1="4.191" y1="6.604" x2="15.113" y2="6.604" width="0.3048" layer="1"/>
+<wire x1="15.113" y1="6.604" x2="17.018" y2="8.509" width="0.3048" layer="1"/>
+<wire x1="17.018" y1="8.509" x2="17.018" y2="9.906" width="0.3048" layer="1"/>
 </signal>
 <signal name="3.3V">
 <contactref element="U$2" pad="18"/>
 <contactref element="XPORT" pad="7"/>
-<wire x1="1.651" y1="1.524" x2="20.828" y2="12.446" width="0" layer="19" extent="1-1"/>
+<wire x1="1.651" y1="1.524" x2="10.48255625" y2="1.524" width="0.3048" layer="1"/>
+<wire x1="10.48255625" y1="1.524" x2="10.60895625" y2="1.3976" width="0.3048" layer="1"/>
+<wire x1="10.60895625" y1="1.3976" x2="14.3516" y2="1.3976" width="0.3048" layer="1"/>
+<wire x1="14.3516" y1="1.3976" x2="20.828" y2="7.874" width="0.3048" layer="1"/>
+<wire x1="20.828" y1="7.874" x2="20.828" y2="12.446" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$1">
 </signal>
@@ -823,19 +864,40 @@ Please make sure your boards conform to these design rules.</description>
 </signal>
 <signal name="MOSI">
 <contactref element="U$2" pad="11"/>
+<contactref element="IO" pad="4"/>
+<wire x1="1.651" y1="19.304" x2="0.635" y2="20.32" width="0.3048" layer="1"/>
+<wire x1="0.635" y1="20.32" x2="0.635" y2="25.654" width="0.3048" layer="1"/>
+<wire x1="0.635" y1="25.654" x2="29.464" y2="25.654" width="0.3048" layer="1"/>
+<wire x1="29.464" y1="25.654" x2="30.256" y2="24.862" width="0.3048" layer="1"/>
+<wire x1="30.256" y1="24.862" x2="30.256" y2="24.072" width="0.3048" layer="1"/>
 </signal>
 <signal name="PWM2">
 <contactref element="U$2" pad="25"/>
+<contactref element="IO" pad="2"/>
+<wire x1="33.909" y1="9.144" x2="30.988" y2="12.065" width="0.3048" layer="1"/>
+<wire x1="30.988" y1="12.065" x2="30.988" y2="20.32" width="0.3048" layer="1"/>
+<wire x1="30.988" y1="20.32" x2="32.258" y2="21.59" width="0.3048" layer="1"/>
+<wire x1="32.258" y1="21.59" x2="32.766" y2="21.59" width="0.3048" layer="1"/>
+<wire x1="32.766" y1="21.59" x2="32.766" y2="24.062" width="0.3048" layer="1"/>
+<wire x1="32.766" y1="24.062" x2="32.756" y2="24.072" width="0.3048" layer="1"/>
 </signal>
 <signal name="PWM1">
 <contactref element="U$2" pad="26"/>
+<contactref element="IO" pad="3"/>
+<wire x1="33.909" y1="6.604" x2="29.464" y2="11.049" width="0.3048" layer="1"/>
+<wire x1="29.464" y1="11.049" x2="29.464" y2="21.209" width="0.3048" layer="1"/>
+<wire x1="29.464" y1="21.209" x2="30.353" y2="22.098" width="0.3048" layer="1"/>
+<wire x1="30.353" y1="22.098" x2="31.369" y2="22.098" width="0.3048" layer="1"/>
+<wire x1="31.369" y1="22.098" x2="31.506" y2="22.235" width="0.3048" layer="1"/>
+<wire x1="31.506" y1="22.235" x2="31.506" y2="24.072" width="0.3048" layer="1"/>
 </signal>
 <signal name="VIN">
 <contactref element="U$2" pad="27"/>
 <contactref element="DC-DC5V" pad="OUT+.2"/>
 <contactref element="DC-DC5V" pad="OUT+.1"/>
-<wire x1="26.924" y1="8.509" x2="33.909" y2="4.064" width="0" layer="19" extent="1-1"/>
-<wire x1="26.924" y1="11.049" x2="26.924" y2="8.509" width="0" layer="19" extent="1-1"/>
+<wire x1="26.924" y1="11.049" x2="26.924" y2="8.509" width="0.3048" layer="1"/>
+<wire x1="26.924" y1="8.509" x2="29.464" y2="8.509" width="0.3048" layer="1"/>
+<wire x1="29.464" y1="8.509" x2="33.909" y2="4.064" width="0.3048" layer="1"/>
 </signal>
 <signal name="SSEL">
 <contactref element="U$2" pad="14"/>
@@ -862,15 +924,21 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="DC-DC5V" pad="IN-.1"/>
 <contactref element="DC-DC5V" pad="IN-.2"/>
 <contactref element="24V" pad="1"/>
-<wire x1="8.382" y1="19.177" x2="8.382" y2="21.717" width="0" layer="19" extent="1-1"/>
-<wire x1="3.165" y1="23.945" x2="8.382" y2="21.717" width="0" layer="19" extent="1-1"/>
+<wire x1="3.165" y1="23.945" x2="6.154" y2="23.945" width="0.3048" layer="1"/>
+<wire x1="6.154" y1="23.945" x2="8.382" y2="21.717" width="0.3048" layer="1"/>
+<wire x1="8.382" y1="21.717" x2="8.382" y2="19.177" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="S$2">
 <contactref element="DC-DC5V" pad="IN+.1"/>
 <contactref element="DC-DC5V" pad="IN+.2"/>
 <contactref element="24V" pad="2"/>
-<wire x1="8.382" y1="11.049" x2="1.915" y2="23.945" width="0" layer="19" extent="1-1"/>
-<wire x1="8.382" y1="8.509" x2="8.382" y2="11.049" width="0" layer="19" extent="1-1"/>
+<wire x1="8.382" y1="8.509" x2="8.382" y2="11.049" width="0.3048" layer="1"/>
+<wire x1="8.382" y1="11.049" x2="4.064" y2="15.367" width="0.3048" layer="1"/>
+<wire x1="4.064" y1="15.367" x2="4.064" y2="20.828" width="0.3048" layer="1"/>
+<wire x1="4.064" y1="20.828" x2="2.794" y2="22.098" width="0.3048" layer="1"/>
+<wire x1="2.794" y1="22.098" x2="1.905" y2="22.098" width="0.3048" layer="1"/>
+<wire x1="1.905" y1="22.098" x2="1.905" y2="23.935" width="0.3048" layer="1"/>
+<wire x1="1.905" y1="23.935" x2="1.915" y2="23.945" width="0.3048" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

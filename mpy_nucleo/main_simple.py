@@ -1,7 +1,7 @@
 #Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Górny at dadmin.dgor@gmail.com
 #refer to states.txt for state machine explanations
 import network, time
-import utelnet.utelnetserver as telnet
+import utelnet as telnet
 from machine import reset
 from robot import Scara
 from stepper import Nanotec
@@ -18,6 +18,9 @@ if net.isconnected():
     l_cam = H7("192.168.125.111", 10001)
     l_bow = Nanotec("192.168.125.112")
     scara = Scara("192.168.125.100")
+    l_bow.velo(50)
+    l_bow.prog()
+    l_cam.get()
 
 #dump
 #print("\n:( Something went wrong.")
