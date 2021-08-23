@@ -60,7 +60,6 @@ class Flash():
     def off(self):
         self.time.sleep(self.post)
         self.pin.value(0)
-        self.time.sleep(0.01)
 
 
 class Velux():

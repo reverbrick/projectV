@@ -10,6 +10,12 @@ make
 #flashing using stlink
 make -C ports/stm32 MICROPY_HW_ENABLE_ETH_RMII=1 BOARD=NUCLEO_F767ZI deploy-stlink
 
+#flashing for feather
+make submodules
+make BOARD=ADAFRUIT_F405_EXPRESS clean
+make BOARD=ADAFRUIT_F405_EXPRESS MICROPY_PY_WIZNET5K=5500 MICROPY_PY_LWIP=1
+dfu-util -a 0 -D firmware.dfu
+
 #accessing via screen
 screen /dev/ttyACM0 115200
 
