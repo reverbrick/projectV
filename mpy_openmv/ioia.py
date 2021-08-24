@@ -55,13 +55,11 @@ class Flash():
 
     def on(self):
         self.pin.value(1)
-        self.time.sleep(self.pre)
+        self.time.sleep_ms(self.pre)
 
     def off(self):
-        self.time.sleep(self.post)
+        self.time.sleep_ms(self.post)
         self.pin.value(0)
-        self.time.sleep(0.01)
-
 
 class Velux():
     import math, json
