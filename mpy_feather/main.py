@@ -4,7 +4,7 @@ import time
 from machine import reset
 from robot import Scara
 from stepper import Nanotec
-from camera import H7c
+from camera import H7
 from comms import wiznet, Heartbeat
 Heartbeat()
 wiznet("192.168.125.110")
@@ -12,7 +12,7 @@ wiznet("192.168.125.110")
 items = [[],[]]
 stats = [[],[]]
 avgs = [0, 0]
-cams = [H7c("192.168.125.111", 10001), H7c("192.168.125.121", 10001)]
+cams = [H7("192.168.125.111", 10001)]#, H7("192.168.125.121", 10001)]
 bowls = [Nanotec("192.168.125.112"), Nanotec("192.168.125.122")]
 #scara = Scara("192.168.125.100")
 
