@@ -93,7 +93,7 @@ class Velux():
                 if self.distance(b.cx(), b.cy(),l[0],l[1]) > self.distance(b.cx(), b.cy(),l[2],l[3]):
                     angle = angle + self.math.radians(180)
                 c2x = int(b.cx() + 80 * self.math.cos(angle))
-                c2y = int(b.cy() + 80 * self.math.sin(angle))
+                c2y = int(b.cy() + 80 * self.self.math.sin(angle))
                 img.draw_arrow(b.cx(), b.cy(), c2x, c2y, color=(255,0,0))
                 img.draw_cross(b.cx(), b.cy(), color=(255,0,0))
                 img.draw_line(b.major_axis_line(), color=(255,0,0))
@@ -102,7 +102,7 @@ class Velux():
                 ret['x']=round((b.cx()-c_point[0])*ratio,5)
                 ret['y']=round((b.cy()-c_point[1])*ratio,5)
                 ret['pix'] = pix
-                angle = self.math.degrees(angle)
+                angle = self.self.math.degrees(angle)
                 #if angle<0:
                 #    angle=angle+360
                 if angle>180:
@@ -115,23 +115,23 @@ class Velux():
         sub = {}
         for b in img.find_blobs([threshold], pixels_threshold = 100, area_threshold = 4000):
             l = b.major_axis_line()
-            angle = self.math.atan2(l[1] - l[3], l[0] - l[2])
+            angle = self.self.math.atan2(l[1] - l[3], l[0] - l[2])
             if self.distance(b.cx(), b.cy(),l[0],l[1]) > self.distance(b.cx(), b.cy(), l[2], l[3]):
-                angle = angle + self.math.radians(180)
-            angle = angle + self.math.radians(180)
+                angle = angle + self.self.math.radians(180)
+            angle = angle + self.self.math.radians(180)
 
-            angle = angle + self.math.radians(90)
-            c1x = int(b.cx() + 13 * self.math.cos(angle))
-            c1y = int(b.cy() + 13 * self.math.sin(angle))
+            angle = angle + self.self.math.radians(90)
+            c1x = int(b.cx() + 13 * self.self.math.cos(angle))
+            c1y = int(b.cy() + 13 * self.self.math.sin(angle))
             #img.draw_arrow(b.cx(), b.cy(), c1x, c1y, color=(0,0,0))
 
-            c2x = int(b.cx() - 13 * self.math.cos(angle))
-            c2y = int(b.cy() - 13 * self.math.sin(angle))
+            c2x = int(b.cx() - 13 * self.self.math.cos(angle))
+            c2y = int(b.cy() - 13 * self.self.math.sin(angle))
             #img.draw_arrow(b.cx(), b.cy(), c2x, c2y, color=(0,255,0))
 
-            angle = angle - self.math.radians(90)
-            c3x = int(c2x + 120 * self.math.cos(angle))
-            c3y = int(c2y + 120 * self.math.sin(angle))
+            angle = angle - self.self.math.radians(90)
+            c3x = int(c2x + 120 * self.self.math.cos(angle))
+            c3y = int(c2y + 120 * self.self.math.sin(angle))
             #img.draw_arrow(c2x, c2y, c3x, c3y, color=(0,255,0))
 
             roi = c3x - 5, c3y - 5, 10, 10
@@ -145,19 +145,19 @@ class Velux():
                 img.draw_string(int(b.cxf() + 5), int(b.cyf() + 50), "X:%s "%int(b.cxf())+"Y:%s "%int(b.cyf())+"an:%s "%int(angle), (0,255,0))
                 img.draw_rectangle(b[0:4], color=(255, 255, 255))
                 l = b.major_axis_line()
-                angle = self.math.atan2(l[1] - l[3], l[0] - l[2])
+                angle = self.self.math.atan2(l[1] - l[3], l[0] - l[2])
                 if self.distance(b.cx(), b.cy(), l[0], l[1]) > self.distance(b.cx(), b.cy(), l[2], l[3]):
-                    angle = angle + self.math.radians(180)
-                angle = angle + self.math.radians(180)
-                c2x = int(b.cx() + 80 * self.math.cos(angle))
-                c2y = int(b.cy() + 80 * self.math.sin(angle))
+                    angle = angle + self.self.math.radians(180)
+                angle = angle + self.self.math.radians(180)
+                c2x = int(b.cx() + 80 * self.self.math.cos(angle))
+                c2y = int(b.cy() + 80 * self.self.math.sin(angle))
                 img.draw_arrow(b.cx(), b.cy(), c2x, c2y, color=(0, 255, 0))
                 img.draw_cross(b.cx(), b.cy(), color=(0, 255, 0))
             else:
                 img.draw_string(int(b.cxf() + 20), int(b.cyf() + 20), "Incorrect position", (255,0,0))
 
                 #img.draw_circle(c3x, c3y, 3, (255,0,0), thickness = 2, fill = True)
-            angle = self.math.degrees(angle)
+            angle = self.self.math.degrees(angle)
             if angle < 0:
                 angle = angle + 360
             if angle > 360:
@@ -180,7 +180,6 @@ class Velux():
         return sub
 
     def metal2(self, img, threshold=(176, 255), close=2, ratio = 0.73, min_area= 5000, max_area=50000):
-
         img.binary([threshold])
         if close !=0:
             img.close(close)
@@ -188,15 +187,15 @@ class Velux():
         for b in img.find_blobs([threshold], pixels_threshold = 100, area_threshold = 4000):
             if b.area() > min_area and b.area() < max_area:
                 l = b.major_axis_line()
-                angle = self.math.atan2(l[1] - l[3], l[0] - l[2])
+                angle = self.self.math.atan2(l[1] - l[3], l[0] - l[2])
                 if self.distance(b.cx(), b.cy(), l[0], l[1]) > self.distance(b.cx(), b.cy(), l[2], l[3]):
-                    angle = angle + self.math.radians(180)
+                    angle = angle + self.self.math.radians(180)
 
-                angle = angle - self.math.radians(90)
-                c2x = int(b.cx() + 8 * self.math.cos(angle))
-                c2y = int(b.cy() + 8 * self.math.sin(angle))
+                angle = angle - self.self.math.radians(90)
+                c2x = int(b.cx() + 8 * self.self.math.cos(angle))
+                c2y = int(b.cy() + 8 * self.self.math.sin(angle))
 
-                angle = angle + self.math.radians(270)
+                angle = angle + self.self.math.radians(270)
                 c3x = int(c2x + 124 * self.math.cos(angle))
                 c3y = int(c2y + 124 * self.math.sin(angle))
 
@@ -229,8 +228,46 @@ class Velux():
                     # Oś Y
                     od_y = (b.cyf() - center[1]) * ratio
 
-
                     sub['x']=od_x
                     sub['y']=od_y
                     sub['angle']=angle
+        return sub
+
+    def plastic2(self, img, threshold = (176, 255), close = 3, ratio = 0.73, min_area = 5000, max_area = 50000):
+        img.binary([threshold])
+        if close != 0:
+            img.close(close)
+        sub = {}
+        for b in img.find_blobs([threshold], pixels_threshold = 100, area_threshold = 4000):
+            if b.area() > min_area and b.area() < max_area:
+		    l = b.major_axis_line()
+		    angle = self.math.atan2(l[1] - l[3], l[0] - l[2])
+
+		    if self.distance(b.cx(), b.cy(), l[0], l[1]) > self.distance(b.cx(), b.cy(), l[2], l[3]):
+			angle = angle + self.math.radians(180)
+		    angle = angle + self.math.radians(180)
+		    angle = angle - self.math.radians(6)
+		    c2x = int(b.cx() + 95 * self.math.cos(angle))
+		    c2y = int(b.cy() + 95 * self.math.sin(angle))
+		    img.draw_arrow(b.cx(), b.cy(), c2x, c2y, color=(0, 255, 0), thickness = 3)
+		    img.draw_cross(b.cx(), b.cy(), color=(0, 255, 0), thickness = 3)
+
+		    angle = self.math.degrees(angle)
+		    if angle < 0:
+			angle = angle + 360
+		    if angle > 360:
+			angle = angle - 360
+		    angle = angle - 180
+
+		    #        w    h
+		    shape = 800, 600
+		    center = shape[0]/2, shape[1]/2
+		    # Oś X
+		    od_x = (b.cx() - center[0]) * ratio
+		    # Oś Y
+		    od_y = (b.cy() - center[1]) * ratio
+
+		    sub['x'] = od_x
+		    sub['y'] = od_y
+		    sub['angle']=angle
         return sub
