@@ -16,22 +16,58 @@ app = picoweb.WebApp(__name__)
 @app.route("/")
 def index(req, resp):
     yield from picoweb.start_response(resp)
-    yield from resp.awrite("%s"%log[0])
     yield from resp.awrite(b"""\
-<br>
-<form action='/restart'>
+<html>
+<head>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-header">
+    <tittle>
+      Metalwit vision
+    </tittle>
+    </div>
+    <div class="container-left">
+      <div class="first-bowl">
+        <p>
+          Image from first bowl
+        </p>
+        <img src="/" alt="Image not found"/>
+      </div>
+      <div class="second-bowl">
+        <p>
+          Image from second bowl
+        </p>
+        <img src="/" alt="Image not found"/>
+      </div>
+    </div>
+    <div class="container-right">
+      <center>Olimex settings</center> <br>
+      <form action='/restart'>
     <button> Restart Olimex </button>
-</form>
-<form action='/poweroff'>
-    <button> Shutdown program </button>
-</form>
-<form action='/ledon'>
-    <button> Led ON </button>
-</form>
-<form action='/ledoff'>
-    <button> Led OFF </button>
-</form>
-""")
+    </form>
+    <form action='/poweroff'>
+        <button> Shutdown program </button>
+    </form>
+    <form action='/ledon'>
+        <button> Led ON </button>
+    </form>
+    <form action='/ledoff'>
+        <button> Led OFF </button>
+    </form>
+    <br>
+    <textarea placeholder="Logs here">
+
+    </textarea>
+    <p>
+        %s
+    </p
+    </div>
+  </div>
+</body>
+</html>
+    """%log[0])
 
 @app.route("/restart")
 def index(req, resp):
