@@ -18,15 +18,20 @@ def index(req, resp):
     yield from picoweb.start_response(resp)
     yield from resp.awrite("%s"%log[0])
     yield from resp.awrite(b"""\
-    <html>
-        <head>
-        </head>
-
-        <body>
-            
-        </body>
-    </head
-    """)
+<br>
+<form action='/restart'>
+    <button> Restart Olimex </button>
+</form>
+<form action='/poweroff'>
+    <button> Shutdown program </button>
+</form>
+<form action='/ledon'>
+    <button> Led ON </button>
+</form>
+<form action='/ledoff'>
+    <button> Led OFF </button>
+</form>
+""")
 
 @app.route("/restart")
 def index(req, resp):
