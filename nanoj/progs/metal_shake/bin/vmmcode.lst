@@ -1,0 +1,313 @@
+ARM GAS  C:\windows\ccLc4C5I.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"mapping.cxx"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	In
+  19              		.section	.inputs,"aw",%progbits
+  20              		.align	2
+  23              	In:
+  24 0000 0000     		.space	2
+  25              		.global	Out
+  26 0002 0000     		.section	.outputs,"aw",%progbits
+  27              		.align	2
+  30              	Out:
+  31 0000 00000000 		.space	4
+  32              		.text
+  33              	.Letext0:
+  34              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\types.h"
+  35              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\mapping.h"
+  36              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\mapping.cxx"
+ARM GAS  C:\windows\ccLc4C5I.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 mapping.cxx
+C:\windows\ccLc4C5I.s:23     .inputs:00000000 In
+C:\windows\ccLc4C5I.s:20     .inputs:00000000 $d
+C:\windows\ccLc4C5I.s:30     .outputs:00000000 Out
+C:\windows\ccLc4C5I.s:27     .outputs:00000000 $d
+
+NO UNDEFINED SYMBOLS
+ARM GAS  C:\windows\ccLc4C5I.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"metal_shake.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z4userv,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z4userv
+  21              		.thumb
+  22              		.thumb_func
+  24              	_Z4userv:
+  25              	.LFB0:
+  26              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen\\mappings\\metal_s
+   1:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** // map U16 StatusWord as input 0x6041:00
+   2:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** // map U32 Outputs as output 0x60FE:01
+   3:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** #include "wrapper.h"
+   4:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** void user()
+   5:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** {
+  27              		.loc 1 5 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 7, -8
+  34              		.cfi_offset 14, -4
+  35 0002 00AF     		add	r7, sp, #0
+  36              		.cfi_def_cfa_register 7
+   6:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Set mode "Profile velocity 3"
+   7:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6060, 0x00, 0x1);
+  37              		.loc 1 7 0
+  38 0004 46F26000 		movw	r0, #24672
+  39 0008 0021     		movs	r1, #0
+  40 000a 0122     		movs	r2, #1
+  41 000c FFF7FEFF 		bl	od_write
+   8:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp ****  	// Request state "Ready to switch on"
+   9:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0x6);
+  42              		.loc 1 9 0
+  43 0010 46F24000 		movw	r0, #24640
+  44 0014 0021     		movs	r1, #0
+  45 0016 0622     		movs	r2, #6
+  46 0018 FFF7FEFF 		bl	od_write
+  10:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Wait until the requested state is reached
+  11:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	while ( (In.StatusWord & 0xEF) != 0x21) {
+  47              		.loc 1 11 0
+ARM GAS  C:\windows\ccLc4C5I.s 			page 2
+
+
+  48 001c 01E0     		b	.L2
+  49              	.L3:
+  12:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield(); // Wait for the next cycle (1ms)
+  50              		.loc 1 12 0
+  51 001e FFF7FEFF 		bl	yield
+  52              	.L2:
+  11:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield(); // Wait for the next cycle (1ms)
+  53              		.loc 1 11 0 discriminator 1
+  54 0022 40F20003 		movw	r3, #:lower16:In
+  55 0026 C0F20003 		movt	r3, #:upper16:In
+  56 002a 1B88     		ldrh	r3, [r3]	@ unaligned
+  57 002c 9BB2     		uxth	r3, r3
+  58 002e 03F0EF03 		and	r3, r3, #239
+  59 0032 212B     		cmp	r3, #33
+  60 0034 F3D1     		bne	.L3
+  13:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	}
+  14:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Request the state "Switched on"
+  15:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0x7);
+  61              		.loc 1 15 0
+  62 0036 46F24000 		movw	r0, #24640
+  63 003a 0021     		movs	r1, #0
+  64 003c 0722     		movs	r2, #7
+  65 003e FFF7FEFF 		bl	od_write
+  16:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Wait until the requested state is reached
+  17:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	while ( (In.StatusWord & 0xEF) != 0x23) {
+  66              		.loc 1 17 0
+  67 0042 01E0     		b	.L4
+  68              	.L5:
+  18:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+  69              		.loc 1 18 0
+  70 0044 FFF7FEFF 		bl	yield
+  71              	.L4:
+  17:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+  72              		.loc 1 17 0 discriminator 1
+  73 0048 40F20003 		movw	r3, #:lower16:In
+  74 004c C0F20003 		movt	r3, #:upper16:In
+  75 0050 1B88     		ldrh	r3, [r3]	@ unaligned
+  76 0052 9BB2     		uxth	r3, r3
+  77 0054 03F0EF03 		and	r3, r3, #239
+  78 0058 232B     		cmp	r3, #35
+  79 005a F3D1     		bne	.L5
+  19:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	}
+  20:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Request the state "Operation enabled"
+  21:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0xF);
+  80              		.loc 1 21 0
+  81 005c 46F24000 		movw	r0, #24640
+  82 0060 0021     		movs	r1, #0
+  83 0062 0F22     		movs	r2, #15
+  84 0064 FFF7FEFF 		bl	od_write
+  22:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Wait until the requested state is reached
+  23:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	while ( (In.StatusWord & 0xEF) != 0x27) {
+  85              		.loc 1 23 0
+  86 0068 01E0     		b	.L6
+  87              	.L7:
+  24:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+  88              		.loc 1 24 0
+  89 006a FFF7FEFF 		bl	yield
+ARM GAS  C:\windows\ccLc4C5I.s 			page 3
+
+
+  90              	.L6:
+  23:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+  91              		.loc 1 23 0 discriminator 1
+  92 006e 40F20003 		movw	r3, #:lower16:In
+  93 0072 C0F20003 		movt	r3, #:upper16:In
+  94 0076 1B88     		ldrh	r3, [r3]	@ unaligned
+  95 0078 9BB2     		uxth	r3, r3
+  96 007a 03F0EF03 		and	r3, r3, #239
+  97 007e 272B     		cmp	r3, #39
+  98 0080 F3D1     		bne	.L7
+  25:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	}
+  26:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	
+  27:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x607A, 0x00, 0x1f4); //terget position
+  99              		.loc 1 27 0
+ 100 0082 46F27A00 		movw	r0, #24698
+ 101 0086 0021     		movs	r1, #0
+ 102 0088 4FF4FA72 		mov	r2, #500
+ 103 008c FFF7FEFF 		bl	od_write
+  28:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0x7F);
+ 104              		.loc 1 28 0
+ 105 0090 46F24000 		movw	r0, #24640
+ 106 0094 0021     		movs	r1, #0
+ 107 0096 7F22     		movs	r2, #127
+ 108 0098 FFF7FEFF 		bl	od_write
+  29:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Wait until the requested state is reached
+  30:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	while ( (In.StatusWord) != 0x1637) {
+ 109              		.loc 1 30 0
+ 110 009c 01E0     		b	.L8
+ 111              	.L9:
+  31:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+ 112              		.loc 1 31 0
+ 113 009e FFF7FEFF 		bl	yield
+ 114              	.L8:
+  30:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+ 115              		.loc 1 30 0 discriminator 1
+ 116 00a2 40F20003 		movw	r3, #:lower16:In
+ 117 00a6 C0F20003 		movt	r3, #:upper16:In
+ 118 00aa 1B88     		ldrh	r3, [r3]	@ unaligned
+ 119 00ac 9AB2     		uxth	r2, r3
+ 120 00ae 41F23763 		movw	r3, #5687
+ 121 00b2 9A42     		cmp	r2, r3
+ 122 00b4 F3D1     		bne	.L9
+  32:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	}
+  33:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0x77);
+ 123              		.loc 1 33 0
+ 124 00b6 46F24000 		movw	r0, #24640
+ 125 00ba 0021     		movs	r1, #0
+ 126 00bc 7722     		movs	r2, #119
+ 127 00be FFF7FEFF 		bl	od_write
+  34:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Wait until the requested state is reached
+  35:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	while ( (In.StatusWord) != 0x1633) {
+ 128              		.loc 1 35 0
+ 129 00c2 01E0     		b	.L10
+ 130              	.L11:
+  36:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+ 131              		.loc 1 36 0
+ 132 00c4 FFF7FEFF 		bl	yield
+ARM GAS  C:\windows\ccLc4C5I.s 			page 4
+
+
+ 133              	.L10:
+  35:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+ 134              		.loc 1 35 0 discriminator 1
+ 135 00c8 40F20003 		movw	r3, #:lower16:In
+ 136 00cc C0F20003 		movt	r3, #:upper16:In
+ 137 00d0 1B88     		ldrh	r3, [r3]	@ unaligned
+ 138 00d2 9AB2     		uxth	r2, r3
+ 139 00d4 41F23363 		movw	r3, #5683
+ 140 00d8 9A42     		cmp	r2, r3
+ 141 00da F3D1     		bne	.L11
+  37:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	}
+  38:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x607A, 0x00, 0xFFFFFF9C); //terget position
+ 142              		.loc 1 38 0
+ 143 00dc 46F27A00 		movw	r0, #24698
+ 144 00e0 0021     		movs	r1, #0
+ 145 00e2 6FF06302 		mvn	r2, #99
+ 146 00e6 FFF7FEFF 		bl	od_write
+  39:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0x7F);
+ 147              		.loc 1 39 0
+ 148 00ea 46F24000 		movw	r0, #24640
+ 149 00ee 0021     		movs	r1, #0
+ 150 00f0 7F22     		movs	r2, #127
+ 151 00f2 FFF7FEFF 		bl	od_write
+  40:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Wait until the requested state is reached
+  41:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	while ( (In.StatusWord) != 0x1637) {
+ 152              		.loc 1 41 0
+ 153 00f6 01E0     		b	.L12
+ 154              	.L13:
+  42:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+ 155              		.loc 1 42 0
+ 156 00f8 FFF7FEFF 		bl	yield
+ 157              	.L12:
+  41:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 		yield();
+ 158              		.loc 1 41 0 discriminator 1
+ 159 00fc 40F20003 		movw	r3, #:lower16:In
+ 160 0100 C0F20003 		movt	r3, #:upper16:In
+ 161 0104 1B88     		ldrh	r3, [r3]	@ unaligned
+ 162 0106 9AB2     		uxth	r2, r3
+ 163 0108 41F23763 		movw	r3, #5687
+ 164 010c 9A42     		cmp	r2, r3
+ 165 010e F3D1     		bne	.L13
+  43:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	}
+  44:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	
+  45:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Stop the motor
+  46:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0x0);
+ 166              		.loc 1 46 0
+ 167 0110 46F24000 		movw	r0, #24640
+ 168 0114 0021     		movs	r1, #0
+ 169 0116 0022     		movs	r2, #0
+ 170 0118 FFF7FEFF 		bl	od_write
+  47:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 
+  48:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// Stop the NanoJ program. Without this line, the firmware would
+  49:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	// call user() again as soon as we return.
+  50:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** 	od_write(0x2300, 0x00, 0x0);
+ 171              		.loc 1 50 0
+ 172 011c 4FF40C50 		mov	r0, #8960
+ 173 0120 0021     		movs	r1, #0
+ARM GAS  C:\windows\ccLc4C5I.s 			page 5
+
+
+ 174 0122 0022     		movs	r2, #0
+ 175 0124 FFF7FEFF 		bl	od_write
+  51:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings\metal_shake.cpp **** }
+ 176              		.loc 1 51 0
+ 177 0128 80BD     		pop	{r7, pc}
+ 178              		.cfi_endproc
+ 179              	.LFE0:
+ 181 012a 00BF     		.text
+ 182              	.Letext0:
+ 183              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen/types.h"
+ 184              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\NanoJ project\\gen/mapping.h"
+ARM GAS  C:\windows\ccLc4C5I.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 metal_shake.cpp
+C:\windows\ccLc4C5I.s:19     .text._Z4userv:00000000 $t
+C:\windows\ccLc4C5I.s:24     .text._Z4userv:00000000 _Z4userv
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+od_write
+yield
+In

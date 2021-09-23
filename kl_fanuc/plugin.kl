@@ -1,0 +1,113 @@
+PROGRAM Flb_Plugin
+VAR
+return_string : INTEGER
+status : INTEGER
+moving:INTEGER
+cmd_type: INTEGER
+cmd_int_val:INTEGER
+cmd_real_val:REAL
+cmd_str_val:STRING[128]
+
+command_Str:STRING[128]
+file_var : FILE
+tmp_str : STRING[128]
+tmp_str1:STRING[128]
+tmp_str2:STRING[128]
+entry : INTEGER
+
+xs : STRING[9]
+ys : STRING[9]
+angles : STRING[9]
+x : REAL
+y : REAL
+angle : REAL
+posn : XYZWPR
+
+ROUTINE SendCommand(CommandExecute:STRING):INTEGER
+
+BEGIN
+  posn=GET_POS_REG(1,STATUS)
+  return_string=13;
+  command_Str=CommandExecute
+  CLR_IO_STAT(file_var)
+  status = IO_STATUS(file_var)
+  IF status = 0 THEN
+    --Write
+    tmp_str=CHR(0)+CHR(7)+ command_Str + CHR(13)
+    WRITE file_var (tmp_str)
+    IF( IO_STATUS(file_var)<>0) THEN
+      return_string=13
+      WRITE ('Status var OUT fail',CR)
+      go to end_it
+    ENDIF
+
+    --READ
+    entry=0
+    WHILE entry <1 DO
+      BYTES_AHEAD(file_var, entry, status)
+    ENDWHILE
+
+    STATUS = IO_STATUS(file_var)
+    IF(STATUS<>0)THEN
+      return_string=13
+      WRITE ('Status var IN fail',CR)
+      go to end_it
+    ENDIF
+
+    IF (entry>0) THEN
+      READ file_var (xs::0::2, ys::0::2, angles::0::2, CR)
+      CNV_STR_REAL(xs, x)
+      CNV_STR_REAL(ys, y)
+      CNV_STR_REAL(angles, angle)
+      posn.x=x
+      posn.y=y
+      posn.r=angle
+      set_pos_reg(1,posn,STATUS)
+      return_string=1
+    ELSE
+      return_string=13
+      go to end_it
+    ENDIF
+
+  ELSE
+    WRITE ('Status var fail',CR)
+    return_string=13
+    go to end_it
+  ENDIF
+
+  end_it::  
+
+  RETURN(return_string)
+END SendCommand
+
+BEGIN
+  --main
+  GET_TPE_PRM(1,cmd_type,cmd_int_val,cmd_real_val,cmd_str_val,STATUS)
+  IF(STR_LEN(cmd_str_val)>0) THEN
+    command_Str=cmd_str_val
+  else
+    return_string=13
+    go to end_it2
+  ENDIF
+
+  SET_FILE_ATR(file_var, ATR_IA)
+  MSG_DISCO('C7:', status)
+  MSG_CONNECT('C7:',status)
+  IF(status <> 0) THEN
+    return_string=13
+    go to end_it2
+  ENDIF
+  --OPEN FILE file_var ('RW','C7:')
+   --return_string=0
+  return_string=SendCommand(command_Str)
+ -- IF(INDEX(return_string,'POS')<>0)  THEN
+    --return_string=2
+  --else
+    --return_string=return_string
+  --ENDIF
+  end_it2::
+  CLOSE FILE file_var
+  MSG_DISCO('C7:',status)
+  --write the return on string 10
+ SET_INT_REG(10,return_string,status)
+END Flb_Plugin
