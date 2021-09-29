@@ -1,0 +1,60 @@
+Decoded dump of debug contents of section .debug_line:
+
+CU: C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen/types.h:
+File name                            Line number    Starting address
+
+CU: C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project/ioia.h:
+File name                            Line number    Starting address
+ioia.h                                         1           0x8008410
+
+ioia.h                                         2           0x8008414
+ioia.h                                         3           0x8008420
+ioia.h                                         5                   0
+ioia.h                                         6                 0x4
+ioia.h                                         7                0x10
+ioia.h                                         9           0x8008424
+ioia.h                                        10           0x8008428
+ioia.h                                        11           0x8008434
+ioia.h                                        12           0x8008436
+ioia.h                                        11           0x800843a
+ioia.h                                        14           0x800844e
+ioia.h                                        15           0x800845a
+ioia.h                                        16           0x800845c
+ioia.h                                        15           0x8008460
+ioia.h                                        18           0x8008474
+ioia.h                                        19           0x8008480
+ioia.h                                        20           0x8008482
+ioia.h                                        19           0x8008486
+ioia.h                                        22           0x800849a
+ioia.h                                        24           0x800849c
+
+ioia.h                                        25           0x80084a0
+ioia.h                                        26           0x80084ac
+ioia.h                                        27           0x80084b8
+ioia.h                                        29           0x80084bc
+
+ioia.h                                        30           0x80084c4
+ioia.h                                        31           0x80084d0
+ioia.h                                        32           0x80084dc
+ioia.h                                        33           0x80084de
+ioia.h                                        32           0x80084e2
+ioia.h                                        35           0x80084f6
+ioia.h                                        36           0x8008502
+ioia.h                                        37           0x8008504
+ioia.h                                        36           0x8008508
+ioia.h                                        39           0x800851c
+ioia.h                                        41                   0
+
+ioia.h                                        42                 0xa
+ioia.h                                        43                0x16
+ioia.h                                        44                0x1e
+
+C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\NanoJ project\gen\mappings/metal_shake.cpp:
+metal_shake.cpp                                7           0x8008524
+metal_shake.cpp                                8           0x8008528
+metal_shake.cpp                               10           0x800852c
+metal_shake.cpp                               13           0x8008530
+metal_shake.cpp                               14           0x8008538
+metal_shake.cpp                               16           0x8008540
+metal_shake.cpp                               17           0x8008544
+
