@@ -67,23 +67,23 @@ class Velux():
 
     def plastic1(self, img, threshold=(28, 86, 9, 86, -2, 64), close=0, ratio = 0.73, min_area = 3000, max_area = 7000):
         out = []
-        
+
         for b in img.find_blobs([threshold], merge=False, pixels_threshold=3800):
             ret = {}
-            
+
             if b.pixels() > min_area and b.pixels() < max_area:
-               
+
                 c = b.corners()
                 l = b.major_axis_line()
                 angle = self.math.atan2(l[1] - l[3], l[0] - l[2])
-                
+
                 if self.distance(b.cx(), b.cy(), l[0], l[1]) > self.distance(b.cx(), b.cy(), l[2], l[3]):
                     angle = angle + self.math.radians(180)
                     mmratio = self.distance(b.cx(), b.cy(), l[0], l[1]) / self.distance(b.cx(), b.cy(), l[2], l[3])
-                
+
                 else:
                     mmratio = self.distance(b.cx(), b.cy(), l[2], l[3]) / self.distance(b.cx(), b.cy(), l[0], l[1])
-                
+
                 if mmratio>1.3 and mmratio<1.7:
                     angle = angle + self.math.radians(180)
                     c2x = int(b.cx() + 80 * self.math.cos(angle))
@@ -91,17 +91,17 @@ class Velux():
 
                     major_len = self.math.sqrt(((b.major_axis_line()[0] - b.major_axis_line()[2])**2) +((b.major_axis_line()[1] - b.major_axis_line()[3])**2))
                     minor_len = self.math.sqrt(((b.minor_axis_line()[0] - b.minor_axis_line()[2])**2) +((b.minor_axis_line()[1] - b.minor_axis_line()[3])**2))
-                    
+
                     if major_len / minor_len > 1.72 and major_len / minor_len < 2.1:
                         rect = b.rect()
                         angle = self.math.degrees(angle)
-                        
+
                         if angle < 0:
                             angle = angle + 360
-                        
+
                         if angle > 180:
                             angle = angle - 360
-                        
+
                         img.draw_string(rect[0], rect[1], "x: %s"%round((b.cx()-c_point[0])*ratio, 5)+" mm")
                         img.draw_string(rect[0], rect[1]+10, "y: %s"%round((b.cy()-c_point[1])*ratio, 5)+" mm")
                         img.draw_string(rect[0], rect[1]+20, "angle: %s"%angle+"°")
@@ -119,10 +119,10 @@ class Velux():
 
     def metal1(self, img, threshold=(4, 100, -6, 65, -39, 49), close=0, ratio = 0.73, min_area = 3200, max_area = 5000):
         out = []
-        
+
         for b in img.find_blobs([threshold], pixels_threshold = 2000, area_threshold = 4000):
             ret ={}
-            
+
             if b.pixels() > min_area and b.pixels() < max_area:
                 rect = b.rect()
                 l = b.major_axis_line()
@@ -162,7 +162,7 @@ class Velux():
                         img.draw_string(rect[0], rect[1], "x: %s"%round((b.cx()-c_point[0])*ratio, 5)+" mm")
                         img.draw_string(rect[0], rect[1]+10, "y: %s"%round((b.cy()-c_point[1])*ratio, 5)+" mm")
                         img.draw_string(rect[0], rect[1]+20, "angle: %s"%angle+"°")
-                        
+
                         ret['x']=round((b.cx()-c_point[0])*ratio, 5)
                         ret['y']=round((b.cy()-c_point[1])*ratio, 5)
                         ret['angle']=round(angle, 5)
@@ -205,7 +205,7 @@ class Velux():
                             img.draw_string(rect[0], rect[1], "x: %s"%round((b.cx()-c_point[0])*ratio, 5)+" mm")
                             img.draw_string(rect[0], rect[1]+10, "y: %s"%round((b.cy()-c_point[1])*ratio, 5)+" mm")
                             img.draw_string(rect[0], rect[1]+20, "angle: %s"%angle+"°")
-                            
+
                             ret['x']=round((b.cx()-c_point[0])*ratio, 5)
                             ret['y']=round((b.cy()-c_point[1])*ratio, 5)
                             ret['angle']=round(angle, 5)
@@ -215,11 +215,10 @@ class Velux():
         return self.json.dumps(out)
 
     def metal2(self, img, threshold = (14, 255), close=0, ratio = 0.73, min_area = 3000, max_area = 5900):
-        
+        out =[]
         if close !=0:
             img.binary([threshold])
             img.close(close)
-        sub = {}
         for b in img.find_blobs([threshold], pixels_threshold = 2000, area_threshold = 4000):
             ret = {}
             if b.pixels() > min_area and b.pixels() < max_area:
@@ -266,23 +265,22 @@ class Velux():
                             img.draw_string(rect[0], rect[1]+20, "angle: %s"%angle+"°")
                             img.draw_cross(b.cx(), b.cy(), (255, 255, 255), 8, 2)
                             img.draw_arrow(b.cx(), b.cy(), c1x, c1y, (255, 255, 255), 2)
-                            
+
                             ret['x']=round((b.cx()-c_point[0])*ratio, 5)
                             ret['y']=round((b.cy()-c_point[1])*ratio, 5)
                             ret['angle']=round(angle, 5)
-                    
+
                     except:
                         pass
                 out.append(ret)
         return self.json.dumps(out)
 
     def plastic2(self, img, threshold = (94, 255), close = 0, ratio = 0.73, min_area = 2700, max_area = 2900):
-        
+        out = []
         if close != 0:
             img.binary([threshold])
             img.close(close)
-        sub = {}
-        
+
         for b in img.find_blobs([threshold], pixels_threshold = 2000, area_threshold = 4000):
             ret = {}
             major_len = self.math.sqrt(((b.major_axis_line()[0] - b.major_axis_line()[2])**2) + ((b.major_axis_line()[1] - b.major_axis_line()[3])**2))
@@ -291,7 +289,7 @@ class Velux():
             # Uncoment if something went wrong
             #img.draw_string(b.cx(), b.cy(), "%s"%b.pixels())
             #img.draw_string(b.cx(), b.cy(), "%s"%(major_len/minor_len))
-            
+
             if major_len/minor_len > 4 and major_len/minor_len < 6:
 
                 if b.pixels() > min_area and b.pixels() < max_area:
@@ -318,7 +316,7 @@ class Velux():
 
                     try:
                         stats = img.get_statistics(roi = roi)
-                        
+
                         if stats[0] != 0:
                             # Uncoment if something went wrong
                             #img.draw_rectangle(roi)
@@ -331,13 +329,13 @@ class Velux():
                             img.draw_string(rect[0], rect[1]+20, "angle: %s"%angle+"°")
                             img.draw_cross(b.cx(), b.cy(), (255, 255, 255), 6, 3)
                             img.draw_arrow(b.cx(), b.cy(), c1x, c1y, (255, 255, 255), 4)
-                            
+
                             ret['x']=round((b.cx()-c_point[0])*ratio, 5)
                             ret['y']=round((b.cy()-c_point[1])*ratio, 5)
                             ret['angle']=round(angle, 5)
-                            
+
                     except:
                         pass
-                    
+
                     out.append(ret)
         return self.json.dumps(out)
