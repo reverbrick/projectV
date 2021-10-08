@@ -218,7 +218,7 @@
 <text x="32.131" y="3.175" size="0.8128" layer="21" font="vector" ratio="22" rot="R90">VCC</text>
 <text x="32.131" y="8.636" size="0.8128" layer="21" font="vector" ratio="22" rot="R90">P8</text>
 <text x="32.131" y="6.223" size="0.8128" layer="21" font="vector" ratio="22" rot="R90">P7</text>
-<text x="6.35" y="26.162" size="1.778" layer="16" rot="MR270">IOIA/ReverbLand 2021</text>
+<text x="6.858" y="26.035" size="1.778" layer="26" rot="MR270">IOIA/ReverbLand 2021</text>
 </plain>
 <libraries>
 <library name="openmv">
@@ -797,8 +797,12 @@ Please make sure your boards conform to these design rules.</description>
 </polygon>
 <contactref element="DC-DC5V" pad="OUT-.2"/>
 <contactref element="DC-DC5V" pad="OUT-.1"/>
-<contactref element="XPORT" pad="8"/>
 <contactref element="IO" pad="4"/>
+<contactref element="XPORT" pad="1"/>
+<wire x1="26.924" y1="21.717" x2="34.006" y2="23.945" width="0" layer="19" extent="1-1"/>
+<wire x1="26.924" y1="19.177" x2="26.924" y2="21.717" width="0" layer="19" extent="1-1"/>
+<wire x1="13.208" y1="12.446" x2="26.924" y2="19.177" width="0" layer="19" extent="1-1"/>
+<wire x1="33.909" y1="1.524" x2="26.924" y2="19.177" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$69">
 </signal>
@@ -808,28 +812,34 @@ Please make sure your boards conform to these design rules.</description>
 </signal>
 <signal name="SDA">
 <contactref element="U$2" pad="16"/>
-<contactref element="XPORT" pad="5"/>
-<wire x1="1.651" y1="6.604" x2="2.54" y2="5.715" width="0.3048" layer="1"/>
-<wire x1="15.748" y1="5.715" x2="18.288" y2="8.255" width="0.3048" layer="1"/>
-<wire x1="18.288" y1="8.255" x2="18.288" y2="12.446" width="0.3048" layer="1"/>
-<wire x1="2.54" y1="5.715" x2="15.748" y2="5.715" width="0.3048" layer="1"/>
+<contactref element="XPORT" pad="4"/>
+<wire x1="1.651" y1="6.604" x2="3.54441875" y2="6.604" width="0.3048" layer="1"/>
+<wire x1="3.54441875" y1="6.604" x2="3.87461875" y2="6.2738" width="0.3048" layer="1"/>
+<wire x1="3.87461875" y1="6.2738" x2="13.3858" y2="6.2738" width="0.3048" layer="1"/>
+<wire x1="13.3858" y1="6.2738" x2="17.018" y2="9.906" width="0.3048" layer="1"/>
 </signal>
 <signal name="SCL">
 <contactref element="U$2" pad="15"/>
-<contactref element="XPORT" pad="4"/>
-<wire x1="1.651" y1="9.144" x2="4.191" y2="6.604" width="0.3048" layer="1"/>
-<wire x1="4.191" y1="6.604" x2="15.113" y2="6.604" width="0.3048" layer="1"/>
-<wire x1="15.113" y1="6.604" x2="17.018" y2="8.509" width="0.3048" layer="1"/>
-<wire x1="17.018" y1="8.509" x2="17.018" y2="9.906" width="0.3048" layer="1"/>
+<contactref element="XPORT" pad="5"/>
+<wire x1="1.651" y1="9.144" x2="4.064" y2="6.731" width="0.3048" layer="1"/>
+<wire x1="4.064" y1="6.731" x2="10.541" y2="6.731" width="0.3048" layer="1"/>
+<wire x1="10.541" y1="6.731" x2="11.43" y2="7.62" width="0.3048" layer="1"/>
+<wire x1="11.43" y1="7.62" x2="11.43" y2="13.716" width="0.3048" layer="1"/>
+<wire x1="11.43" y1="13.716" x2="17.018" y2="13.716" width="0.3048" layer="1"/>
+<wire x1="17.018" y1="13.716" x2="18.288" y2="12.446" width="0.3048" layer="1"/>
 </signal>
 <signal name="3.3V">
 <contactref element="U$2" pad="18"/>
-<contactref element="XPORT" pad="7"/>
-<wire x1="1.651" y1="1.524" x2="10.48255625" y2="1.524" width="0.3048" layer="1"/>
-<wire x1="10.48255625" y1="1.524" x2="10.60895625" y2="1.3976" width="0.3048" layer="1"/>
-<wire x1="10.60895625" y1="1.3976" x2="14.3516" y2="1.3976" width="0.3048" layer="1"/>
-<wire x1="14.3516" y1="1.3976" x2="20.828" y2="7.874" width="0.3048" layer="1"/>
-<wire x1="20.828" y1="7.874" x2="20.828" y2="12.446" width="0.3048" layer="1"/>
+<contactref element="XPORT" pad="2"/>
+<wire x1="18.415" y1="10.668" x2="17.78" y2="11.303" width="0.3048" layer="1"/>
+<wire x1="17.78" y1="11.303" x2="15.875" y2="11.303" width="0.3048" layer="1"/>
+<wire x1="15.875" y1="11.303" x2="14.478" y2="9.906" width="0.3048" layer="1"/>
+<wire x1="1.651" y1="1.524" x2="5.9436" y2="5.8166" width="0.3048" layer="1"/>
+<wire x1="5.9436" y1="5.8166" x2="13.57518125" y2="5.8166" width="0.3048" layer="1"/>
+<wire x1="16.26758125" y1="8.509" x2="18.034" y2="8.509" width="0.3048" layer="1"/>
+<wire x1="13.57518125" y1="5.8166" x2="16.26758125" y2="8.509" width="0.3048" layer="1"/>
+<wire x1="18.034" y1="8.509" x2="18.415" y2="8.89" width="0.3048" layer="1"/>
+<wire x1="18.415" y1="8.89" x2="18.415" y2="10.668" width="0.3048" layer="1"/>
 </signal>
 <signal name="N$1">
 </signal>
@@ -941,9 +951,6 @@ Please make sure your boards conform to these design rules.</description>
 <mfgpreviewcolor name="coppercolor" color="0xFFFFBF00"/>
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
-<errors>
-<approved hash="11,16,ffab5698b1441877"/>
-</errors>
 </board>
 </drawing>
 <compatibility>

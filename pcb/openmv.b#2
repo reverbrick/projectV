@@ -219,6 +219,7 @@
 <text x="32.131" y="8.636" size="0.8128" layer="21" font="vector" ratio="22" rot="R90">P8</text>
 <text x="32.131" y="6.223" size="0.8128" layer="21" font="vector" ratio="22" rot="R90">P7</text>
 <text x="30.48" y="18.796" size="1.016" layer="28" rot="MR270">IOIA/ReverbLand2021</text>
+<text x="8.763" y="0.762" size="1.016" layer="28" rot="MR0">rev0.2</text>
 </plain>
 <libraries>
 <library name="openmv">
@@ -808,10 +809,10 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="DC-DC5V" pad="OUT-.1"/>
 <contactref element="IO" pad="4"/>
 <contactref element="XPORT" pad="1"/>
-<wire x1="26.924" y1="21.717" x2="34.006" y2="23.945" width="0" layer="19" extent="1-1"/>
-<wire x1="26.924" y1="19.177" x2="26.924" y2="21.717" width="0" layer="19" extent="1-1"/>
-<wire x1="13.208" y1="12.446" x2="26.924" y2="19.177" width="0" layer="19" extent="1-1"/>
-<wire x1="33.909" y1="1.524" x2="26.924" y2="19.177" width="0" layer="19" extent="1-1"/>
+<contactref element="DC-DC5V" pad="IN-.1"/>
+<contactref element="DC-DC5V" pad="IN-.2"/>
+<wire x1="8.382" y1="21.717" x2="8.382" y2="19.177" width="0.3048" layer="1"/>
+<contactref element="24V" pad="2"/>
 </signal>
 <signal name="N$69">
 </signal>
@@ -929,13 +930,6 @@ Please make sure your boards conform to these design rules.</description>
 </signal>
 <signal name="BOOT">
 <contactref element="U$2" pad="23"/>
-</signal>
-<signal name="S$1">
-<contactref element="DC-DC5V" pad="IN-.1"/>
-<contactref element="DC-DC5V" pad="IN-.2"/>
-<wire x1="8.382" y1="21.717" x2="8.382" y2="19.177" width="0.3048" layer="1"/>
-<contactref element="24V" pad="2"/>
-<wire x1="2.54" y1="23.622" x2="8.382" y2="21.717" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="S$2">
 <contactref element="DC-DC5V" pad="IN+.1"/>

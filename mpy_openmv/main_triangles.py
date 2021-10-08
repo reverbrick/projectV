@@ -1,14 +1,14 @@
 from machine import UART
 from ioia import Camera, Flash, Velux; import time
 from comms import recv_msg, send_msg
-import math, json #temp
+import ubinascii, math, json #temp
 cam = Camera(exposure=44000, framesize="SVGA")
 cam.sensor.set_quality(100)
 cam.sensor.set_contrast(-3)
 cam.sensor.set_brightness(-3)
 fla = Flash(100,0)
 #cli = Velux()
-ser = UART(3, 115200)
+ser = UART(3, 921600)
 ratio = 0.73
 
 def distance(x1,y1,x2,y2):
@@ -16,9 +16,9 @@ def distance(x1,y1,x2,y2):
 
 while(True):
     buf = recv_msg(ser)
+    img = cam.snap(fla, corr=0.9)
     #if True:
     if buf==b"snap":
-        img = cam.snap(fla, corr=0.9)
         #img.mask_circle([230,500,590])
         #img.draw_circle([130,530,100], color=(0,0,0),fill=True)
         h = img.get_histogram()
@@ -63,6 +63,7 @@ while(True):
                     ret['angle']=round(angle,5)
                     out.append(ret)
         send_msg(ser,bytearray(json.dumps(out)))
-        #ser.write(img.compress())
         #print(ret)
+    elif buf==b"show":
+        send_msg(ser,bytearray(json.dumps(out)))
     time.sleep(0.1)
