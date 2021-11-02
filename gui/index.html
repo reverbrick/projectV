@@ -1,0 +1,14 @@
+<html>
+  <body style="background-color:black;">
+    <img id="img" src="http://192.168.125.111:10001/img"/>
+    <script>
+      window.onload = function() {
+          var image = document.getElementById("img");
+          function updateImage() {
+              image.src = image.src.split("?")[0] + "?stamp=" + new Date().getTime();
+          }
+          setInterval(updateImage, 500);
+      }
+    </script>
+  </body>
+</html>
