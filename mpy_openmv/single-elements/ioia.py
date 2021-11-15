@@ -117,7 +117,7 @@ class Velux():
                 out.append(ret)
         return self.json.dumps(out)
 
-    def metal1(self, img, threshold=(4, 100, -6, 65, -39, 49), close=0, ratio = 0.73, min_area = 3200, max_area = 5000):
+    def metal1(self, img, threshold=(4, 100, -6, 65, -39, 49), ratio = 0.73, min_area = 3200, max_area = 5000):
         out = []
 
         for b in img.find_blobs([threshold], pixels_threshold = 2000, area_threshold = 4000):
