@@ -1,12 +1,20 @@
-This is a MicroPython board
+#building cross compiler
+make -C mpy-cross
 
-You can get started right away by writing your Python code in 'main.py'.
+cd ports/stm32
+make submodules
+make
 
-For a serial prompt:
- - Windows: you need to go to 'Device manager', right click on the unknown device,
-   then update the driver software, using the 'pybcdc.inf' file found on this drive.
-   Then use a terminal program like Hyperterminal or putty.
- - Mac OS X: use the command: screen /dev/tty.usbmodem*
- - Linux: use the command: screen /dev/ttyACM0
+#flashing using stlink
+make -C ports/stm32 MICROPY_HW_ENABLE_ETH_RMII=1 BOARD=OLIMEX_E407 deploy-stlink
 
-Please visit http://micropython.org/help/ for further help.
+#accessing via screen
+screen /dev/ttyACM0 115200
+
+#repl comment here:
+lib/utils/pyexec.c
+mp_hal_stdout_tx_str("Proudly brought to you by IOIA/ReverbLand. For support please email Daniel Gorny at dadmin.dgor@gmail.com\r\n");
+
+#recover if bad things happen
+st-flash erase
+#and reflash
