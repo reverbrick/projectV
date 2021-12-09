@@ -10,25 +10,30 @@ sensor.set_auto_whitebal(False, (60, 60, 65))
 sensor.set_auto_gain(False, gain_db = 15)
 sensor.set_quality(100)
 sensor.skip_frames(time = 2000)
+
 pin0 = Pin('P0', Pin.OUT_PP, Pin.PULL_NONE)
 center = (639, 559)
 threshold = (15, 255)
 threshold2 = (236, 255)
+
 min_area = 8000
 max_area = 18000
 ratio_antoni = 0.32
 ser = UART(3, 115200)
-show_rects = False
+
+#########################
+show_rects = True
 show_roi = False
 show_six_points = False
 show_threshold = False
+#########################
+
 def distance(x1, y1, x2, y2):
     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 pin0.value(1)
+
 while(True):
     img = sensor.snapshot(). lens_corr(0.9)
-    h = img.get_histogram()
-    t = h.get_threshold()
     if show_threshold == True:
         img.binary([threshold])
     buf = recv_msg(ser)
@@ -44,17 +49,21 @@ while(True):
             a1y = int(b.cy() - 5 * math.sin(angle_a))
             roi = (a1x-30, a1y-30, 60, 60)
             pix = []
-            for b2 in img.find_blobs([threshold2], roi = roi):
+            for b2 in img.find_blobs([threshold2], roi = roi, merge = True):
                 pix.append(b2.pixels())
             if show_roi == True:
                 img.draw_rectangle(roi, color=(255,255,255))
-                img.draw_string(b.cx(), b.cy(), "%s"%sum(pix), scale = 3)
+                #img.draw_string(b.cx(), b.cy(), "%s"%sum(pix), scale = 3)
+                if distance(b.cx(), b.cy(), l_a[0], l_a[1]) > distance(b.cx(), b.cy(), l_a[2], l_a[3]):
+                    img.draw_string(b.cx(),b.cy(),"%s"%round(distance(b.cx(), b.cy(), l_a[0], l_a[1])/distance(b.cx(), b.cy(), l_a[2], l_a[3]),2), (255,255,255), scale = 2)
+                else:
+                    img.draw_string(b.cx(), b.cy(), "%s"%round(distance(b.cx(), b.cy(), l_a[2], l_a[3])/distance(b.cx(), b.cy(), l_a[0], l_a[1]),2), (255,255,255), scale = 2)
             if sum(pix) >=0 and sum(pix) <= 8:
                 l = b.major_axis_line()
                 major_len = math.sqrt(((b.major_axis_line()[0] - b.major_axis_line()[2])**2) +((b.major_axis_line()[1] - b.major_axis_line()[3])**2))
                 minor_len = math.sqrt(((b.minor_axis_line()[0] - b.minor_axis_line()[2])**2) +((b.minor_axis_line()[1] - b.minor_axis_line()[3])**2))
-                ratio = major_len/minor_len
-                if (major_len > 380 and major_len < 410) and (ratio > 6 and ratio < 12):
+                ratio_minor = major_len/minor_len
+                if (major_len > 385 and major_len < 410) and (ratio_minor > 7 and ratio_minor < 10):
                     angle = math.atan2(l[1] - l[3], l[0] - l[2])
                     if distance(b.cx(), b.cy(), l[0], l[1]) > distance(b.cx(), b.cy(), l[2], l[3]):
                         angle = angle + math.radians(180)
@@ -120,7 +129,6 @@ while(True):
                                     ratio = 124 / major_len
                                 elif minor_len > major_len:
                                     ratio = 124 / minor_len
-                                #img.draw_string(b.cx(), b.cy(), "%s"%sum(pix), scale = 3)
                                 x = (b.cx() - center[0]) * ratio
                                 y = (b.cy() - center[1]) * ratio
                                 y = y * -1
@@ -129,12 +137,12 @@ while(True):
                                 val.append(out)
                     except:
                         pass
-            elif sum(pix) >= 200:
+            elif sum(pix) >= 100:
                 l = b.major_axis_line()
                 major_len = math.sqrt(((b.major_axis_line()[0] - b.major_axis_line()[2])**2) +((b.major_axis_line()[1] - b.major_axis_line()[3])**2))
                 minor_len = math.sqrt(((b.minor_axis_line()[0] - b.minor_axis_line()[2])**2) +((b.minor_axis_line()[1] - b.minor_axis_line()[3])**2))
-                ratio = major_len/minor_len
-                if (major_len > 380 and major_len < 410) and (ratio > 6 and ratio < 12):
+                ratio_minor = major_len/minor_len
+                if (major_len > 380 and major_len < 410) and (ratio_minor > 7 and ratio_minor < 10):
                     angle = math.atan2(l[1] - l[3], l[0] - l[2])
                     if distance(b.cx(), b.cy(), l[0], l[1]) > distance(b.cx(), b.cy(), l[2], l[3]):
                         angle = angle + math.radians(180)
@@ -200,7 +208,7 @@ while(True):
                                     ratio = 124 / major_len
                                 elif minor_len > major_len:
                                     ratio = 124 / minor_len
-                                #img.draw_string(b.cx(), b.cy(), "%s"%sum(pix), scale = 3)
+
                                 x = (b.cx() - center[0]) * ratio
                                 y = (b.cy() - center[1]) * ratio
                                 y = y * -1
