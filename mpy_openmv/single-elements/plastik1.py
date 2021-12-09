@@ -13,7 +13,7 @@ sensor.set_contrast(-3)
 sensor.set_brightness(-3)
 sensor.set_auto_whitebal(False, (60.2071, 61.0849, 66.9353))
 sensor.set_auto_gain(False, gain_db = 6.0207)
-sensor.set_auto_exposure(False, exposure_us = 74000)
+sensor.set_auto_exposure(False, exposure_us = 134000)
 sensor.skip_frames(time = 3300)
 
 ################################
@@ -45,16 +45,17 @@ while(True):
     for b in img.find_blobs([threshold], merge=False, pixels_threshold=3800):
         ret = {}
         pix = b.pixels()
-        if pix > 11000 and pix < 24300:
-            #img.draw_string(b.cx(), b.cy(), "%s"%b.pixels(), color=(255,255,255), scale = 3)
-            c = b.corners()
-            #print(c)
+        if pix > 12000 and pix < 19000:
+
+
             l = b.major_axis_line()
             k = b.minor_axis_line()
             angle = math.atan2(l[1] - l[3], l[0] - l[2])
             if distance(b.cx(), b.cy(),l[0],l[1]) > distance(b.cx(), b.cy(),l[2],l[3]):
                 angle = angle + math.radians(180)
-
+                #img.draw_string(b.cx(),b.cy(),"%s"%round(distance(b.cx(), b.cy(), l[0], l[1])/distance(b.cx(), b.cy(), l[2], l[3]),2), (255,255,255), scale = 2)
+            #else:
+                #img.draw_string(b.cx(), b.cy(), "%s"%round(distance(b.cx(), b.cy(), l[2], l[3])/distance(b.cx(), b.cy(), l[0], l[1]),2), (255,255,255), scale = 2)
             angle_out = angle
             angle2 = angle
             c2x = int(b.cx() + 33 * math.cos(angle))
@@ -65,7 +66,7 @@ while(True):
                 angle = angle + math.radians(180)
             major_len = math.sqrt(((b.major_axis_line()[0] - b.major_axis_line()[2])**2) +((b.major_axis_line()[1] - b.major_axis_line()[3])**2))
             minor_len = math.sqrt(((b.minor_axis_line()[0] - b.minor_axis_line()[2])**2) +((b.minor_axis_line()[1] - b.minor_axis_line()[3])**2))
-            if major_len > 300 and major_len < 360:
+            if major_len > 320 and major_len < 345:
                 #img.draw_string(b.cx(), b.cy(),"%s"%major_len, scale = 3)
                 c1x = int(c2x + 22 * math.cos(angle))
                 c1y = int(c2y + 22 * math.sin(angle))
@@ -130,8 +131,8 @@ while(True):
                             img.draw_rectangle(b.rect(), color=(10, 255, 0), thickness = 2)
                             img.draw_rectangle(b.rect()[0], b.rect()[1]-15, 80, 15, (10, 255, 0), fill=True)
                             img.draw_string(b.rect()[0], b.rect()[1]-18, "Pick", (0, 0, 0), scale = 2)
-                            #img.draw_cross(b1x, b1y, (255,255,0), 4, 2)
-                            #img.draw_arrow(c1x,c1y,b1x,b1y, (255,255,0))
+                            img.draw_cross(b1x, b1y, (255,255,0), 10, 4)
+                            img.draw_arrow(c1x,c1y,b1x,b1y, (255,255,0), thickness = 2)
 
                         angle = math.degrees(angle_out)
                         angle = round(angle, 3)
@@ -139,25 +140,19 @@ while(True):
                             angle = angle - 360
                         angle = angle * -1
 
-                        #img.draw_string(b.cx(), b.cy(), "%s"%angle, scale= 3)
                         x = (b1x - center[0]) * ratio
                         y = (b1y - center[1]) * ratio
-                        #img.draw_cross(b1x, b1y, (255,255,0), 4, 2)
                         y = y * -1
                         out = {"x": round(x,3), "y": round(y,3), "angle": round(angle,3), "side": 1}
-
-                        img.draw_cross(b1x, b1y, (255,255,0), 4, 2)
-                        #print(out)
                         val.append(out)
 
                     else:
-                        #img.draw_rectangle(bsend_ms.rect(), color=(10, 100, 0), thickness = 2)
                         img.draw_rectangle(b.rect()[0], b.rect()[1]-15, 80, 15, (10, 255, 0), fill=True)
                         img.draw_string(b.rect()[0], b.rect()[1]-18, "NOk", (0, 0, 0), scale = 2)
                 except:
                     pass
+
     img.draw_circle(center[0], center[1], 1, (255,255,255), 2, False)
+
     if buf == b"snap":
-        #print("Snap")
-        #print(val)
         send_msg(ser,bytearray(json.dumps(val)))
