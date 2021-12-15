@@ -1,3 +1,8 @@
+##################
+#
+#     Metal 1
+#
+##################
 import sensor, image, time, math, json
 from pyb import Pin
 from machine import UART
@@ -53,7 +58,6 @@ while(True):
                 pix.append(b2.pixels())
             if show_roi == True:
                 img.draw_rectangle(roi, color=(255,255,255))
-                #img.draw_string(b.cx(), b.cy(), "%s"%sum(pix), scale = 3)
                 if distance(b.cx(), b.cy(), l_a[0], l_a[1]) > distance(b.cx(), b.cy(), l_a[2], l_a[3]):
                     img.draw_string(b.cx(),b.cy(),"%s"%round(distance(b.cx(), b.cy(), l_a[0], l_a[1])/distance(b.cx(), b.cy(), l_a[2], l_a[3]),2), (255,255,255), scale = 2)
                 else:
@@ -79,6 +83,14 @@ while(True):
                     angle1 = angle1 + math.radians(90)
                     c5x = int(c4x - 40 * math.cos(angle1))
                     c5y = int(c4y - 40 * math.sin(angle1))
+
+
+                    # first of two added rois
+                    angle3 = angle1 + math.radians(90)
+                    e1x = int(c5x - 18 * math.cos(angle3))
+                    e1y = int(c5y - 18 * math.sin(angle3))
+
+
                     c6x = int(c5x - 40 * math.cos(angle1))
                     c6y = int(c5y - 40 * math.sin(angle1))
                     d3x = int(b.cx() - 40 * math.cos(angle2))
@@ -89,14 +101,23 @@ while(True):
                     angle2 = angle2 - math.radians(90)
                     d5x = int(d4x - 40 * math.cos(angle2))
                     d5y = int(d4y - 40 * math.sin(angle2))
+
+                    angle3 = angle2 - math.radians(90)
+                    e2x = int(d5x - 18 * math.cos(angle3))
+                    e2y = int(d5y - 18 * math.sin(angle3))
+
                     d6x = int(d5x - 40 * math.cos(angle2))
                     d6y = int(d5y - 40 * math.sin(angle2))
+
+
                     roi1 = (c4x-1, c4y-1, 2, 2)
                     roi2 = (c5x-1, c5y-1, 2, 2)
                     roi3 = (c6x-1, c6y-1, 2, 2)
                     roi4 = (d4x-1, d4y-1, 2, 2)
                     roi5 = (d5x-1, d5y-1, 2, 2)
                     roi6 = (d6x-1, d6y-1, 2, 2)
+                    roi7 = (e1x-1, e1y-1, 2, 2)
+                    roi8 = (e2x-1, e2y-1, 2, 2)
                     try:
                         stats1a = img.get_statistics(thresholds = [threshold], roi = roi1)
                         stats2a = img.get_statistics(thresholds = [threshold], roi = roi2)
@@ -104,6 +125,8 @@ while(True):
                         stats1b = img.get_statistics(thresholds = [threshold], roi = roi4)
                         stats2b = img.get_statistics(thresholds = [threshold], roi = roi5)
                         stats3b = img.get_statistics(thresholds = [threshold], roi = roi6)
+                        stats1c = img.get_statistics(thresholds = [threshold], roi = roi7)
+                        stats2c = img.get_statistics(thresholds = [threshold], roi = roi8)
                         if show_six_points == True:
                             img.draw_rectangle(roi1)
                             img.draw_rectangle(roi2)
@@ -111,7 +134,10 @@ while(True):
                             img.draw_rectangle(roi4)
                             img.draw_rectangle(roi5)
                             img.draw_rectangle(roi6)
-                        if stats1a[0] == 0 and stats2a[0] == 0 and stats3a[0] == 0 and stats1b[0] == 0 and stats2b[0] == 0 and stats3b[0] == 0:
+                            img.draw_rectangle(roi7)
+                            img.draw_rectangle(roi8)
+
+                        if stats1a[0] == 0 and stats2a[0] == 0 and stats3a[0] == 0 and stats1b[0] == 0 and stats2b[0] == 0 and stats3b[0] == 0 and stats1c[0] == 0 and stats2c[0] == 0:
                             roi = (c1x-2, c1y-2, 4, 4)
                             stats = img.get_statistics(roi=roi, thresholds =[threshold])
                             if stats[0] == 0:
@@ -158,6 +184,12 @@ while(True):
                     angle1 = angle1 + math.radians(90)
                     c5x = int(c4x - 40 * math.cos(angle1))
                     c5y = int(c4y - 40 * math.sin(angle1))
+
+                    # first of two added rois
+                    angle3 = angle1 + math.radians(90)
+                    e1x = int(c5x - 18 * math.cos(angle3))
+                    e1y = int(c5y - 18 * math.sin(angle3))
+
                     c6x = int(c5x - 40 * math.cos(angle1))
                     c6y = int(c5y - 40 * math.sin(angle1))
                     d3x = int(b.cx() - 40 * math.cos(angle2))
@@ -168,14 +200,26 @@ while(True):
                     angle2 = angle2 - math.radians(90)
                     d5x = int(d4x - 40 * math.cos(angle2))
                     d5y = int(d4y - 40 * math.sin(angle2))
+
+                    angle3 = angle2 - math.radians(90)
+                    e2x = int(d5x - 18 * math.cos(angle3))
+                    e2y = int(d5y - 18 * math.sin(angle3))
+
                     d6x = int(d5x - 40 * math.cos(angle2))
                     d6y = int(d5y - 40 * math.sin(angle2))
+
+
                     roi1 = (c4x-1, c4y-1, 2, 2)
                     roi2 = (c5x-1, c5y-1, 2, 2)
                     roi3 = (c6x-1, c6y-1, 2, 2)
                     roi4 = (d4x-1, d4y-1, 2, 2)
                     roi5 = (d5x-1, d5y-1, 2, 2)
                     roi6 = (d6x-1, d6y-1, 2, 2)
+                    roi7 = (e1x-1, e1y-1, 2, 2)
+                    roi8 = (e2x-1, e2y-1, 2, 2)
+
+
+
                     try:
                         stats1a = img.get_statistics(thresholds = [threshold], roi = roi1)
                         stats2a = img.get_statistics(thresholds = [threshold], roi = roi2)
@@ -183,6 +227,8 @@ while(True):
                         stats1b = img.get_statistics(thresholds = [threshold], roi = roi4)
                         stats2b = img.get_statistics(thresholds = [threshold], roi = roi5)
                         stats3b = img.get_statistics(thresholds = [threshold], roi = roi6)
+                        stats1c = img.get_statistics(thresholds = [threshold], roi = roi7)
+                        stats2c = img.get_statistics(thresholds = [threshold], roi = roi8)
                         if show_six_points == True:
                             img.draw_rectangle(roi1)
                             img.draw_rectangle(roi2)
@@ -190,7 +236,9 @@ while(True):
                             img.draw_rectangle(roi4)
                             img.draw_rectangle(roi5)
                             img.draw_rectangle(roi6)
-                        if stats1a[0] == 0 and stats2a[0] == 0 and stats3a[0] == 0 and stats1b[0] == 0 and stats2b[0] == 0 and stats3b[0] == 0:
+                            img.draw_rectangle(roi7)
+                            img.draw_rectangle(roi8)
+                        if stats1a[0] == 0 and stats2a[0] == 0 and stats3a[0] == 0 and stats1b[0] == 0 and stats2b[0] == 0 and stats3b[0] == 0 and stats1c[0] == 0 and stats2c[0] == 0:
                             roi = (c1x-2, c1y-2, 4, 4)
                             stats = img.get_statistics(roi=roi, thresholds =[threshold])
                             if stats[0] == 0:
