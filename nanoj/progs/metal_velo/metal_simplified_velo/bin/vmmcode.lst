@@ -1,0 +1,541 @@
+ARM GAS  C:\windows\cc1OstKx.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"mapping.cxx"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	In
+  19              		.section	.inputs,"aw",%progbits
+  20              		.align	2
+  23              	In:
+  24 0000 0000     		.space	2
+  25              		.global	Out
+  26 0002 0000     		.section	.outputs,"aw",%progbits
+  27              		.align	2
+  30              	Out:
+  31 0000 00000000 		.space	4
+  32              		.text
+  33              	.Letext0:
+  34              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\metal_simplified\\gen\\types.h"
+  35              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\metal_simplified\\gen\\mapping.h"
+  36              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\metal_simplified\\gen\\mapping.cxx"
+ARM GAS  C:\windows\cc1OstKx.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 mapping.cxx
+C:\windows\cc1OstKx.s:23     .inputs:00000000 In
+C:\windows\cc1OstKx.s:20     .inputs:00000000 $d
+C:\windows\cc1OstKx.s:30     .outputs:00000000 Out
+C:\windows\cc1OstKx.s:27     .outputs:00000000 $d
+
+NO UNDEFINED SYMBOLS
+ARM GAS  C:\windows\cc1OstKx.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"metal_shake.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z13mode_positionv,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z13mode_positionv
+  21              		.thumb
+  22              		.thumb_func
+  24              	_Z13mode_positionv:
+  25              	.LFB0:
+  26              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\metal_simplified/ioia.h"
+   1:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** void mode_position(){
+  27              		.loc 1 1 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 7, -8
+  34              		.cfi_offset 14, -4
+  35 0002 00AF     		add	r7, sp, #0
+  36              		.cfi_def_cfa_register 7
+   2:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6060, 0x00, 0x1);
+  37              		.loc 1 2 0
+  38 0004 46F26000 		movw	r0, #24672
+  39 0008 0021     		movs	r1, #0
+  40 000a 0122     		movs	r2, #1
+  41 000c FFF7FEFF 		bl	od_write
+   3:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** }
+  42              		.loc 1 3 0
+  43 0010 80BD     		pop	{r7, pc}
+  44              		.cfi_endproc
+  45              	.LFE0:
+  47 0012 00BF     		.section	.text._Z13mode_velocityv,"ax",%progbits
+  48              		.align	2
+  49              		.global	_Z13mode_velocityv
+  50              		.thumb
+  51              		.thumb_func
+  53              	_Z13mode_velocityv:
+  54              	.LFB1:
+   4:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 
+   5:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** void mode_velocity(){
+  55              		.loc 1 5 0
+ARM GAS  C:\windows\cc1OstKx.s 			page 2
+
+
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 1, uses_anonymous_args = 0
+  59 0000 80B5     		push	{r7, lr}
+  60              		.cfi_def_cfa_offset 8
+  61              		.cfi_offset 7, -8
+  62              		.cfi_offset 14, -4
+  63 0002 00AF     		add	r7, sp, #0
+  64              		.cfi_def_cfa_register 7
+   6:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6060, 0x00, 0x3);
+  65              		.loc 1 6 0
+  66 0004 46F26000 		movw	r0, #24672
+  67 0008 0021     		movs	r1, #0
+  68 000a 0322     		movs	r2, #3
+  69 000c FFF7FEFF 		bl	od_write
+   7:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** }
+  70              		.loc 1 7 0
+  71 0010 80BD     		pop	{r7, pc}
+  72              		.cfi_endproc
+  73              	.LFE1:
+  75 0012 00BF     		.section	.text._Z5startv,"ax",%progbits
+  76              		.align	2
+  77              		.global	_Z5startv
+  78              		.thumb
+  79              		.thumb_func
+  81              	_Z5startv:
+  82              	.LFB2:
+   8:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 
+   9:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** void start(){
+  83              		.loc 1 9 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 1, uses_anonymous_args = 0
+  87 0000 80B5     		push	{r7, lr}
+  88              		.cfi_def_cfa_offset 8
+  89              		.cfi_offset 7, -8
+  90              		.cfi_offset 14, -4
+  91 0002 00AF     		add	r7, sp, #0
+  92              		.cfi_def_cfa_register 7
+  10:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6040, 0x00, 0x6);
+  93              		.loc 1 10 0
+  94 0004 46F24000 		movw	r0, #24640
+  95 0008 0021     		movs	r1, #0
+  96 000a 0622     		movs	r2, #6
+  97 000c FFF7FEFF 		bl	od_write
+  11:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x21) {
+  98              		.loc 1 11 0
+  99 0010 01E0     		b	.L4
+ 100              	.L5:
+  12:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 		yield();
+ 101              		.loc 1 12 0
+ 102 0012 FFF7FEFF 		bl	yield
+ 103              	.L4:
+  11:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x21) {
+ 104              		.loc 1 11 0 discriminator 1
+ 105 0016 40F20003 		movw	r3, #:lower16:In
+ 106 001a C0F20003 		movt	r3, #:upper16:In
+ARM GAS  C:\windows\cc1OstKx.s 			page 3
+
+
+ 107 001e 1B88     		ldrh	r3, [r3]	@ unaligned
+ 108 0020 9BB2     		uxth	r3, r3
+ 109 0022 03F0EF03 		and	r3, r3, #239
+ 110 0026 212B     		cmp	r3, #33
+ 111 0028 F3D1     		bne	.L5
+  13:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	}
+  14:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6040, 0x00, 0x7);
+ 112              		.loc 1 14 0
+ 113 002a 46F24000 		movw	r0, #24640
+ 114 002e 0021     		movs	r1, #0
+ 115 0030 0722     		movs	r2, #7
+ 116 0032 FFF7FEFF 		bl	od_write
+  15:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x23) {
+ 117              		.loc 1 15 0
+ 118 0036 01E0     		b	.L6
+ 119              	.L7:
+  16:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 		yield();
+ 120              		.loc 1 16 0
+ 121 0038 FFF7FEFF 		bl	yield
+ 122              	.L6:
+  15:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x23) {
+ 123              		.loc 1 15 0 discriminator 1
+ 124 003c 40F20003 		movw	r3, #:lower16:In
+ 125 0040 C0F20003 		movt	r3, #:upper16:In
+ 126 0044 1B88     		ldrh	r3, [r3]	@ unaligned
+ 127 0046 9BB2     		uxth	r3, r3
+ 128 0048 03F0EF03 		and	r3, r3, #239
+ 129 004c 232B     		cmp	r3, #35
+ 130 004e F3D1     		bne	.L7
+  17:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	}
+  18:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6040, 0x00, 0xF);
+ 131              		.loc 1 18 0
+ 132 0050 46F24000 		movw	r0, #24640
+ 133 0054 0021     		movs	r1, #0
+ 134 0056 0F22     		movs	r2, #15
+ 135 0058 FFF7FEFF 		bl	od_write
+  19:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x27) {
+ 136              		.loc 1 19 0
+ 137 005c 01E0     		b	.L8
+ 138              	.L9:
+  20:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 		yield();
+ 139              		.loc 1 20 0
+ 140 005e FFF7FEFF 		bl	yield
+ 141              	.L8:
+  19:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x27) {
+ 142              		.loc 1 19 0 discriminator 1
+ 143 0062 40F20003 		movw	r3, #:lower16:In
+ 144 0066 C0F20003 		movt	r3, #:upper16:In
+ 145 006a 1B88     		ldrh	r3, [r3]	@ unaligned
+ 146 006c 9BB2     		uxth	r3, r3
+ 147 006e 03F0EF03 		and	r3, r3, #239
+ 148 0072 272B     		cmp	r3, #39
+ 149 0074 F3D1     		bne	.L9
+  21:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	}
+  22:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** }
+ 150              		.loc 1 22 0
+ 151 0076 80BD     		pop	{r7, pc}
+ARM GAS  C:\windows\cc1OstKx.s 			page 4
+
+
+ 152              		.cfi_endproc
+ 153              	.LFE2:
+ 155              		.section	.text._Z4stopv,"ax",%progbits
+ 156              		.align	2
+ 157              		.global	_Z4stopv
+ 158              		.thumb
+ 159              		.thumb_func
+ 161              	_Z4stopv:
+ 162              	.LFB3:
+  23:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 
+  24:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** void stop(){
+ 163              		.loc 1 24 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 1, uses_anonymous_args = 0
+ 167 0000 80B5     		push	{r7, lr}
+ 168              		.cfi_def_cfa_offset 8
+ 169              		.cfi_offset 7, -8
+ 170              		.cfi_offset 14, -4
+ 171 0002 00AF     		add	r7, sp, #0
+ 172              		.cfi_def_cfa_register 7
+  25:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6040, 0x00, 0x0);
+ 173              		.loc 1 25 0
+ 174 0004 46F24000 		movw	r0, #24640
+ 175 0008 0021     		movs	r1, #0
+ 176 000a 0022     		movs	r2, #0
+ 177 000c FFF7FEFF 		bl	od_write
+  26:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x2300, 0x00, 0x0);
+ 178              		.loc 1 26 0
+ 179 0010 4FF40C50 		mov	r0, #8960
+ 180 0014 0021     		movs	r1, #0
+ 181 0016 0022     		movs	r2, #0
+ 182 0018 FFF7FEFF 		bl	od_write
+  27:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** }
+ 183              		.loc 1 27 0
+ 184 001c 80BD     		pop	{r7, pc}
+ 185              		.cfi_endproc
+ 186              	.LFE3:
+ 188 001e 00BF     		.section	.text._Z6targetj,"ax",%progbits
+ 189              		.align	2
+ 190              		.global	_Z6targetj
+ 191              		.thumb
+ 192              		.thumb_func
+ 194              	_Z6targetj:
+ 195              	.LFB4:
+  28:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 
+  29:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** void target(U32 param){
+ 196              		.loc 1 29 0
+ 197              		.cfi_startproc
+ 198              		@ args = 0, pretend = 0, frame = 8
+ 199              		@ frame_needed = 1, uses_anonymous_args = 0
+ 200 0000 80B5     		push	{r7, lr}
+ 201              		.cfi_def_cfa_offset 8
+ 202              		.cfi_offset 7, -8
+ 203              		.cfi_offset 14, -4
+ 204 0002 82B0     		sub	sp, sp, #8
+ 205              		.cfi_def_cfa_offset 16
+ARM GAS  C:\windows\cc1OstKx.s 			page 5
+
+
+ 206 0004 00AF     		add	r7, sp, #0
+ 207              		.cfi_def_cfa_register 7
+ 208 0006 7860     		str	r0, [r7, #4]
+  30:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x607A, 0x00, param);
+ 209              		.loc 1 30 0
+ 210 0008 46F27A00 		movw	r0, #24698
+ 211 000c 0021     		movs	r1, #0
+ 212 000e 7A68     		ldr	r2, [r7, #4]
+ 213 0010 FFF7FEFF 		bl	od_write
+  31:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6040, 0x00, 0x7F);
+ 214              		.loc 1 31 0
+ 215 0014 46F24000 		movw	r0, #24640
+ 216 0018 0021     		movs	r1, #0
+ 217 001a 7F22     		movs	r2, #127
+ 218 001c FFF7FEFF 		bl	od_write
+  32:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord) != 0x1637) {
+ 219              		.loc 1 32 0
+ 220 0020 01E0     		b	.L12
+ 221              	.L13:
+  33:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 		yield();
+ 222              		.loc 1 33 0
+ 223 0022 FFF7FEFF 		bl	yield
+ 224              	.L12:
+  32:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord) != 0x1637) {
+ 225              		.loc 1 32 0 discriminator 1
+ 226 0026 40F20003 		movw	r3, #:lower16:In
+ 227 002a C0F20003 		movt	r3, #:upper16:In
+ 228 002e 1B88     		ldrh	r3, [r3]	@ unaligned
+ 229 0030 9AB2     		uxth	r2, r3
+ 230 0032 41F23763 		movw	r3, #5687
+ 231 0036 9A42     		cmp	r2, r3
+ 232 0038 F3D1     		bne	.L13
+  34:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	}
+  35:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x6040, 0x00, 0x77);
+ 233              		.loc 1 35 0
+ 234 003a 46F24000 		movw	r0, #24640
+ 235 003e 0021     		movs	r1, #0
+ 236 0040 7722     		movs	r2, #119
+ 237 0042 FFF7FEFF 		bl	od_write
+  36:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord) != 0x1633) {
+ 238              		.loc 1 36 0
+ 239 0046 01E0     		b	.L14
+ 240              	.L15:
+  37:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 		yield();
+ 241              		.loc 1 37 0
+ 242 0048 FFF7FEFF 		bl	yield
+ 243              	.L14:
+  36:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	while ( (In.StatusWord) != 0x1633) {
+ 244              		.loc 1 36 0 discriminator 1
+ 245 004c 40F20003 		movw	r3, #:lower16:In
+ 246 0050 C0F20003 		movt	r3, #:upper16:In
+ 247 0054 1B88     		ldrh	r3, [r3]	@ unaligned
+ 248 0056 9AB2     		uxth	r2, r3
+ 249 0058 41F23363 		movw	r3, #5683
+ 250 005c 9A42     		cmp	r2, r3
+ 251 005e F3D1     		bne	.L15
+  38:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	}
+ARM GAS  C:\windows\cc1OstKx.s 			page 6
+
+
+  39:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** }
+ 252              		.loc 1 39 0
+ 253 0060 0837     		adds	r7, r7, #8
+ 254 0062 BD46     		mov	sp, r7
+ 255              		@ sp needed
+ 256 0064 80BD     		pop	{r7, pc}
+ 257              		.cfi_endproc
+ 258              	.LFE4:
+ 260 0066 00BF     		.section	.text._Z8velocityji,"ax",%progbits
+ 261              		.align	2
+ 262              		.global	_Z8velocityji
+ 263              		.thumb
+ 264              		.thumb_func
+ 266              	_Z8velocityji:
+ 267              	.LFB5:
+  40:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 
+  41:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** void velocity(U32 param, int sleeptime){
+ 268              		.loc 1 41 0
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 8
+ 271              		@ frame_needed = 1, uses_anonymous_args = 0
+ 272 0000 80B5     		push	{r7, lr}
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 7, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 82B0     		sub	sp, sp, #8
+ 277              		.cfi_def_cfa_offset 16
+ 278 0004 00AF     		add	r7, sp, #0
+ 279              		.cfi_def_cfa_register 7
+ 280 0006 7860     		str	r0, [r7, #4]
+ 281 0008 3960     		str	r1, [r7]
+  42:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	od_write(0x60FF, 0x00, param);
+ 282              		.loc 1 42 0
+ 283 000a 46F2FF00 		movw	r0, #24831
+ 284 000e 0021     		movs	r1, #0
+ 285 0010 7A68     		ldr	r2, [r7, #4]
+ 286 0012 FFF7FEFF 		bl	od_write
+  43:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** 	sleep(sleeptime);
+ 287              		.loc 1 43 0
+ 288 0016 3B68     		ldr	r3, [r7]
+ 289 0018 1846     		mov	r0, r3
+ 290 001a FFF7FEFF 		bl	sleep
+  44:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\ioia.h **** }...
+ 291              		.loc 1 44 0
+ 292 001e 0837     		adds	r7, r7, #8
+ 293 0020 BD46     		mov	sp, r7
+ 294              		@ sp needed
+ 295 0022 80BD     		pop	{r7, pc}
+ 296              		.cfi_endproc
+ 297              	.LFE5:
+ 299              		.section	.text._Z4userv,"ax",%progbits
+ 300              		.align	2
+ 301              		.global	_Z4userv
+ 302              		.thumb
+ 303              		.thumb_func
+ 305              	_Z4userv:
+ 306              	.LFB6:
+ARM GAS  C:\windows\cc1OstKx.s 			page 7
+
+
+ 307              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\metal_simplified\\gen\\mappings\\meta
+   1:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** // map U16 StatusWord as input 0x6041:00
+   2:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** // map U32 Outputs as output 0x60FE:01
+   3:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** #include "wrapper.h"
+   4:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** #include "ioia.h"
+   5:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 
+   6:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** void user()
+   7:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** {
+ 308              		.loc 2 7 0
+ 309              		.cfi_startproc
+ 310              		@ args = 0, pretend = 0, frame = 0
+ 311              		@ frame_needed = 1, uses_anonymous_args = 0
+ 312 0000 80B5     		push	{r7, lr}
+ 313              		.cfi_def_cfa_offset 8
+ 314              		.cfi_offset 7, -8
+ 315              		.cfi_offset 14, -4
+ 316 0002 00AF     		add	r7, sp, #0
+ 317              		.cfi_def_cfa_register 7
+   8:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	mode_velocity();
+ 318              		.loc 2 8 0
+ 319 0004 FFF7FEFF 		bl	_Z13mode_velocityv
+   9:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	start();
+ 320              		.loc 2 9 0
+ 321 0008 FFF7FEFF 		bl	_Z5startv
+  10:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	Out.Outputs = 0x00000;
+ 322              		.loc 2 10 0
+ 323 000c 40F20003 		movw	r3, #:lower16:Out
+ 324 0010 C0F20003 		movt	r3, #:upper16:Out
+ 325 0014 0022     		movs	r2, #0
+ 326 0016 1A70     		strb	r2, [r3]
+ 327 0018 0022     		movs	r2, #0
+ 328 001a 5A70     		strb	r2, [r3, #1]
+ 329 001c 0022     		movs	r2, #0
+ 330 001e 9A70     		strb	r2, [r3, #2]
+ 331 0020 0022     		movs	r2, #0
+ 332 0022 DA70     		strb	r2, [r3, #3]
+  11:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	sleep(40);
+ 333              		.loc 2 11 0
+ 334 0024 2820     		movs	r0, #40
+ 335 0026 FFF7FEFF 		bl	sleep
+  12:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	Out.Outputs = 0x10000;	
+ 336              		.loc 2 12 0
+ 337 002a 40F20003 		movw	r3, #:lower16:Out
+ 338 002e C0F20003 		movt	r3, #:upper16:Out
+ 339 0032 0022     		movs	r2, #0
+ 340 0034 1A70     		strb	r2, [r3]
+ 341 0036 0022     		movs	r2, #0
+ 342 0038 5A70     		strb	r2, [r3, #1]
+ 343 003a 0022     		movs	r2, #0
+ 344 003c 42F00102 		orr	r2, r2, #1
+ 345 0040 9A70     		strb	r2, [r3, #2]
+ 346 0042 0022     		movs	r2, #0
+ 347 0044 DA70     		strb	r2, [r3, #3]
+  13:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	sleep(150);
+ 348              		.loc 2 13 0
+ 349 0046 9620     		movs	r0, #150
+ 350 0048 FFF7FEFF 		bl	sleep
+ARM GAS  C:\windows\cc1OstKx.s 			page 8
+
+
+  14:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	Out.Outputs = 0x00000;
+ 351              		.loc 2 14 0
+ 352 004c 40F20003 		movw	r3, #:lower16:Out
+ 353 0050 C0F20003 		movt	r3, #:upper16:Out
+ 354 0054 0022     		movs	r2, #0
+ 355 0056 1A70     		strb	r2, [r3]
+ 356 0058 0022     		movs	r2, #0
+ 357 005a 5A70     		strb	r2, [r3, #1]
+ 358 005c 0022     		movs	r2, #0
+ 359 005e 9A70     		strb	r2, [r3, #2]
+ 360 0060 0022     		movs	r2, #0
+ 361 0062 DA70     		strb	r2, [r3, #3]
+  15:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	sleep(40);
+ 362              		.loc 2 15 0
+ 363 0064 2820     		movs	r0, #40
+ 364 0066 FFF7FEFF 		bl	sleep
+  16:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	Out.Outputs = 0x10000;	
+ 365              		.loc 2 16 0
+ 366 006a 40F20003 		movw	r3, #:lower16:Out
+ 367 006e C0F20003 		movt	r3, #:upper16:Out
+ 368 0072 0022     		movs	r2, #0
+ 369 0074 1A70     		strb	r2, [r3]
+ 370 0076 0022     		movs	r2, #0
+ 371 0078 5A70     		strb	r2, [r3, #1]
+ 372 007a 0022     		movs	r2, #0
+ 373 007c 42F00102 		orr	r2, r2, #1
+ 374 0080 9A70     		strb	r2, [r3, #2]
+ 375 0082 0022     		movs	r2, #0
+ 376 0084 DA70     		strb	r2, [r3, #3]
+  17:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	sleep(150);
+ 377              		.loc 2 17 0
+ 378 0086 9620     		movs	r0, #150
+ 379 0088 FFF7FEFF 		bl	sleep
+  18:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** 	stop();
+ 380              		.loc 2 18 0
+ 381 008c FFF7FEFF 		bl	_Z4stopv
+  19:C:\Plug & Drive Studio\PNDS-2.1.1-x86\workspace\metal_simplified\gen\mappings\metal_shake.cpp **** }
+ 382              		.loc 2 19 0
+ 383 0090 80BD     		pop	{r7, pc}
+ 384              		.cfi_endproc
+ 385              	.LFE6:
+ 387 0092 00BF     		.text
+ 388              	.Letext0:
+ 389              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\metal_simplified\\gen/types.h"
+ 390              		.file 4 "C:\\Plug & Drive Studio\\PNDS-2.1.1-x86\\workspace\\metal_simplified\\gen/mapping.h"
+ARM GAS  C:\windows\cc1OstKx.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 metal_shake.cpp
+C:\windows\cc1OstKx.s:19     .text._Z13mode_positionv:00000000 $t
+C:\windows\cc1OstKx.s:24     .text._Z13mode_positionv:00000000 _Z13mode_positionv
+C:\windows\cc1OstKx.s:48     .text._Z13mode_velocityv:00000000 $t
+C:\windows\cc1OstKx.s:53     .text._Z13mode_velocityv:00000000 _Z13mode_velocityv
+C:\windows\cc1OstKx.s:76     .text._Z5startv:00000000 $t
+C:\windows\cc1OstKx.s:81     .text._Z5startv:00000000 _Z5startv
+C:\windows\cc1OstKx.s:156    .text._Z4stopv:00000000 $t
+C:\windows\cc1OstKx.s:161    .text._Z4stopv:00000000 _Z4stopv
+C:\windows\cc1OstKx.s:189    .text._Z6targetj:00000000 $t
+C:\windows\cc1OstKx.s:194    .text._Z6targetj:00000000 _Z6targetj
+C:\windows\cc1OstKx.s:261    .text._Z8velocityji:00000000 $t
+C:\windows\cc1OstKx.s:266    .text._Z8velocityji:00000000 _Z8velocityji
+C:\windows\cc1OstKx.s:300    .text._Z4userv:00000000 $t
+C:\windows\cc1OstKx.s:305    .text._Z4userv:00000000 _Z4userv
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+od_write
+yield
+In
+sleep
+Out

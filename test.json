@@ -1,7 +1,0 @@
-[{'sztuki': 20, 'proby': 100, 'razem': 149, 'czas_testu': 132611, 'trzy': 10, 'wiecej': 9, 'jeden': 35, 'dwa': 23, 'czas': 1178, 'zera': 23},
-{'sztuki': 20, 'proby': 100, 'razem': 128, 'czas_testu': 132186, 'trzy': 4, 'wiecej': 2, 'jeden': 34, 'dwa': 37, 'czas': 1644, 'zera': 23},
-{'sztuki': 30, 'proby': 100, 'razem': 212, 'czas_testu': 134109, 'trzy': 19, 'wiecej': 18, 'jeden': 23, 'dwa': 24, 'czas': 1692, 'zera': 16},
-{'sztuki': 40, 'proby': 100, 'razem': 252, 'czas_testu': 135517, 'trzy': 22, 'wiecej': 21, 'jeden': 24, 'dwa': 29, 'czas': 1182, 'zera': 4},
-{'sztuki': 50, 'proby': 100, 'razem': 275, 'czas_testu': 135353, 'trzy': 29, 'wiecej': 28, 'jeden': 18, 'dwa': 20, 'czas': 1162, 'zera': 5},
-{'sztuki': 60, 'proby': 100, 'razem': 233, 'czas_testu': 135865, 'trzy': 16, 'wiecej': 24, 'jeden': 29, 'dwa': 24, 'czas': 1680, 'zera': 7},
-{'sztuki': 60, 'proby': 100, 'razem': 205, 'czas_testu': 134597, 'trzy': 21, 'wiecej': 11, 'jeden': 19, 'dwa': 35, 'czas': 1680, 'zera': 14}]

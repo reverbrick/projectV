@@ -1,0 +1,32 @@
+192.168.125.1 Default gateway - external pc
+
+192.168.125.100 Scara
+  80 http
+  7776 socket client
+  profinet
+
+192.168.125.101 Scara2 (bb4)
+  80 http
+  7776 socket client
+  profinet
+
+192.168.125.110 Bowl CPU
+  80 http
+  23 telnet
+  7776 socket server
+
+192.168.125.111 Camera1
+  80 http
+  10001 socket
+  99999 telnet setup
+
+192.168.125.121 Camera2
+  80 http
+  10001 socket
+  99999 telnet setup
+
+192.168.125.112 Bowl1 Controller
+  80 http
+
+192.168.125.122 Bowl2 Controller
+  80 http
