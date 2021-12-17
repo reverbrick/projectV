@@ -1,0 +1,658 @@
+ARM GAS  C:\windows\cc8OVOcz.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"mapping.cxx"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	In
+  19              		.section	.inputs,"aw",%progbits
+  20              		.align	2
+  23              	In:
+  24 0000 0000     		.space	2
+  25              		.global	Out
+  26 0002 0000     		.section	.outputs,"aw",%progbits
+  27              		.align	2
+  30              	Out:
+  31 0000 00000000 		.space	4
+  32              		.text
+  33              	.Letext0:
+  34              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.2-x86\\workspace\\metal_velo\\gen\\types.h"
+  35              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.2-x86\\workspace\\metal_velo\\gen\\mapping.h"
+  36              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.2-x86\\workspace\\metal_velo\\gen\\mapping.cxx"
+ARM GAS  C:\windows\cc8OVOcz.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 mapping.cxx
+C:\windows\cc8OVOcz.s:23     .inputs:00000000 In
+C:\windows\cc8OVOcz.s:20     .inputs:00000000 $d
+C:\windows\cc8OVOcz.s:30     .outputs:00000000 Out
+C:\windows\cc8OVOcz.s:27     .outputs:00000000 $d
+
+NO UNDEFINED SYMBOLS
+ARM GAS  C:\windows\cc8OVOcz.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"metal_shake.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z13mode_positionv,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z13mode_positionv
+  21              		.thumb
+  22              		.thumb_func
+  24              	_Z13mode_positionv:
+  25              	.LFB0:
+  26              		.file 1 "C:\\Plug & Drive Studio\\PNDS-2.1.2-x86\\workspace\\metal_velo/ioia.h"
+   1:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void mode_position(){
+  27              		.loc 1 1 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 7, -8
+  34              		.cfi_offset 14, -4
+  35 0002 00AF     		add	r7, sp, #0
+  36              		.cfi_def_cfa_register 7
+   2:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6060, 0x00, 0x1);
+  37              		.loc 1 2 0
+  38 0004 46F26000 		movw	r0, #24672
+  39 0008 0021     		movs	r1, #0
+  40 000a 0122     		movs	r2, #1
+  41 000c FFF7FEFF 		bl	od_write
+   3:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }
+  42              		.loc 1 3 0
+  43 0010 80BD     		pop	{r7, pc}
+  44              		.cfi_endproc
+  45              	.LFE0:
+  47 0012 00BF     		.section	.text._Z13mode_velocityv,"ax",%progbits
+  48              		.align	2
+  49              		.global	_Z13mode_velocityv
+  50              		.thumb
+  51              		.thumb_func
+  53              	_Z13mode_velocityv:
+  54              	.LFB1:
+   4:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 
+   5:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void mode_velocity(){
+  55              		.loc 1 5 0
+ARM GAS  C:\windows\cc8OVOcz.s 			page 2
+
+
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 1, uses_anonymous_args = 0
+  59 0000 80B5     		push	{r7, lr}
+  60              		.cfi_def_cfa_offset 8
+  61              		.cfi_offset 7, -8
+  62              		.cfi_offset 14, -4
+  63 0002 00AF     		add	r7, sp, #0
+  64              		.cfi_def_cfa_register 7
+   6:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6060, 0x00, 0x3);
+  65              		.loc 1 6 0
+  66 0004 46F26000 		movw	r0, #24672
+  67 0008 0021     		movs	r1, #0
+  68 000a 0322     		movs	r2, #3
+  69 000c FFF7FEFF 		bl	od_write
+   7:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }
+  70              		.loc 1 7 0
+  71 0010 80BD     		pop	{r7, pc}
+  72              		.cfi_endproc
+  73              	.LFE1:
+  75 0012 00BF     		.section	.text._Z5startv,"ax",%progbits
+  76              		.align	2
+  77              		.global	_Z5startv
+  78              		.thumb
+  79              		.thumb_func
+  81              	_Z5startv:
+  82              	.LFB2:
+   8:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 
+   9:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void start(){
+  83              		.loc 1 9 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 1, uses_anonymous_args = 0
+  87 0000 80B5     		push	{r7, lr}
+  88              		.cfi_def_cfa_offset 8
+  89              		.cfi_offset 7, -8
+  90              		.cfi_offset 14, -4
+  91 0002 00AF     		add	r7, sp, #0
+  92              		.cfi_def_cfa_register 7
+  10:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6040, 0x00, 0x6);
+  93              		.loc 1 10 0
+  94 0004 46F24000 		movw	r0, #24640
+  95 0008 0021     		movs	r1, #0
+  96 000a 0622     		movs	r2, #6
+  97 000c FFF7FEFF 		bl	od_write
+  11:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x21) {
+  98              		.loc 1 11 0
+  99 0010 01E0     		b	.L4
+ 100              	.L5:
+  12:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 		yield();
+ 101              		.loc 1 12 0
+ 102 0012 FFF7FEFF 		bl	yield
+ 103              	.L4:
+  11:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x21) {
+ 104              		.loc 1 11 0 discriminator 1
+ 105 0016 40F20003 		movw	r3, #:lower16:In
+ 106 001a C0F20003 		movt	r3, #:upper16:In
+ARM GAS  C:\windows\cc8OVOcz.s 			page 3
+
+
+ 107 001e 1B88     		ldrh	r3, [r3]	@ unaligned
+ 108 0020 9BB2     		uxth	r3, r3
+ 109 0022 03F0EF03 		and	r3, r3, #239
+ 110 0026 212B     		cmp	r3, #33
+ 111 0028 F3D1     		bne	.L5
+  13:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	}
+  14:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6040, 0x00, 0x7);
+ 112              		.loc 1 14 0
+ 113 002a 46F24000 		movw	r0, #24640
+ 114 002e 0021     		movs	r1, #0
+ 115 0030 0722     		movs	r2, #7
+ 116 0032 FFF7FEFF 		bl	od_write
+  15:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x23) {
+ 117              		.loc 1 15 0
+ 118 0036 01E0     		b	.L6
+ 119              	.L7:
+  16:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 		yield();
+ 120              		.loc 1 16 0
+ 121 0038 FFF7FEFF 		bl	yield
+ 122              	.L6:
+  15:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x23) {
+ 123              		.loc 1 15 0 discriminator 1
+ 124 003c 40F20003 		movw	r3, #:lower16:In
+ 125 0040 C0F20003 		movt	r3, #:upper16:In
+ 126 0044 1B88     		ldrh	r3, [r3]	@ unaligned
+ 127 0046 9BB2     		uxth	r3, r3
+ 128 0048 03F0EF03 		and	r3, r3, #239
+ 129 004c 232B     		cmp	r3, #35
+ 130 004e F3D1     		bne	.L7
+  17:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	}
+  18:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6040, 0x00, 0xF);
+ 131              		.loc 1 18 0
+ 132 0050 46F24000 		movw	r0, #24640
+ 133 0054 0021     		movs	r1, #0
+ 134 0056 0F22     		movs	r2, #15
+ 135 0058 FFF7FEFF 		bl	od_write
+  19:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x27) {
+ 136              		.loc 1 19 0
+ 137 005c 01E0     		b	.L8
+ 138              	.L9:
+  20:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 		yield();
+ 139              		.loc 1 20 0
+ 140 005e FFF7FEFF 		bl	yield
+ 141              	.L8:
+  19:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord & 0xEF) != 0x27) {
+ 142              		.loc 1 19 0 discriminator 1
+ 143 0062 40F20003 		movw	r3, #:lower16:In
+ 144 0066 C0F20003 		movt	r3, #:upper16:In
+ 145 006a 1B88     		ldrh	r3, [r3]	@ unaligned
+ 146 006c 9BB2     		uxth	r3, r3
+ 147 006e 03F0EF03 		and	r3, r3, #239
+ 148 0072 272B     		cmp	r3, #39
+ 149 0074 F3D1     		bne	.L9
+  21:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	}
+  22:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }
+ 150              		.loc 1 22 0
+ 151 0076 80BD     		pop	{r7, pc}
+ARM GAS  C:\windows\cc8OVOcz.s 			page 4
+
+
+ 152              		.cfi_endproc
+ 153              	.LFE2:
+ 155              		.section	.text._Z4stopv,"ax",%progbits
+ 156              		.align	2
+ 157              		.global	_Z4stopv
+ 158              		.thumb
+ 159              		.thumb_func
+ 161              	_Z4stopv:
+ 162              	.LFB3:
+  23:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 
+  24:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void stop(){
+ 163              		.loc 1 24 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 1, uses_anonymous_args = 0
+ 167 0000 80B5     		push	{r7, lr}
+ 168              		.cfi_def_cfa_offset 8
+ 169              		.cfi_offset 7, -8
+ 170              		.cfi_offset 14, -4
+ 171 0002 00AF     		add	r7, sp, #0
+ 172              		.cfi_def_cfa_register 7
+  25:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6040, 0x00, 0x0);
+ 173              		.loc 1 25 0
+ 174 0004 46F24000 		movw	r0, #24640
+ 175 0008 0021     		movs	r1, #0
+ 176 000a 0022     		movs	r2, #0
+ 177 000c FFF7FEFF 		bl	od_write
+  26:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x2300, 0x00, 0x0);
+ 178              		.loc 1 26 0
+ 179 0010 4FF40C50 		mov	r0, #8960
+ 180 0014 0021     		movs	r1, #0
+ 181 0016 0022     		movs	r2, #0
+ 182 0018 FFF7FEFF 		bl	od_write
+  27:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }
+ 183              		.loc 1 27 0
+ 184 001c 80BD     		pop	{r7, pc}
+ 185              		.cfi_endproc
+ 186              	.LFE3:
+ 188 001e 00BF     		.section	.text._Z6targetj,"ax",%progbits
+ 189              		.align	2
+ 190              		.global	_Z6targetj
+ 191              		.thumb
+ 192              		.thumb_func
+ 194              	_Z6targetj:
+ 195              	.LFB4:
+  28:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 
+  29:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void target(U32 param){
+ 196              		.loc 1 29 0
+ 197              		.cfi_startproc
+ 198              		@ args = 0, pretend = 0, frame = 8
+ 199              		@ frame_needed = 1, uses_anonymous_args = 0
+ 200 0000 80B5     		push	{r7, lr}
+ 201              		.cfi_def_cfa_offset 8
+ 202              		.cfi_offset 7, -8
+ 203              		.cfi_offset 14, -4
+ 204 0002 82B0     		sub	sp, sp, #8
+ 205              		.cfi_def_cfa_offset 16
+ARM GAS  C:\windows\cc8OVOcz.s 			page 5
+
+
+ 206 0004 00AF     		add	r7, sp, #0
+ 207              		.cfi_def_cfa_register 7
+ 208 0006 7860     		str	r0, [r7, #4]
+  30:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x607A, 0x00, param);
+ 209              		.loc 1 30 0
+ 210 0008 46F27A00 		movw	r0, #24698
+ 211 000c 0021     		movs	r1, #0
+ 212 000e 7A68     		ldr	r2, [r7, #4]
+ 213 0010 FFF7FEFF 		bl	od_write
+  31:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6040, 0x00, 0x7F);
+ 214              		.loc 1 31 0
+ 215 0014 46F24000 		movw	r0, #24640
+ 216 0018 0021     		movs	r1, #0
+ 217 001a 7F22     		movs	r2, #127
+ 218 001c FFF7FEFF 		bl	od_write
+  32:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord) != 0x1637) {
+ 219              		.loc 1 32 0
+ 220 0020 01E0     		b	.L12
+ 221              	.L13:
+  33:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 		yield();
+ 222              		.loc 1 33 0
+ 223 0022 FFF7FEFF 		bl	yield
+ 224              	.L12:
+  32:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord) != 0x1637) {
+ 225              		.loc 1 32 0 discriminator 1
+ 226 0026 40F20003 		movw	r3, #:lower16:In
+ 227 002a C0F20003 		movt	r3, #:upper16:In
+ 228 002e 1B88     		ldrh	r3, [r3]	@ unaligned
+ 229 0030 9AB2     		uxth	r2, r3
+ 230 0032 41F23763 		movw	r3, #5687
+ 231 0036 9A42     		cmp	r2, r3
+ 232 0038 F3D1     		bne	.L13
+  34:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	}
+  35:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x6040, 0x00, 0x77);
+ 233              		.loc 1 35 0
+ 234 003a 46F24000 		movw	r0, #24640
+ 235 003e 0021     		movs	r1, #0
+ 236 0040 7722     		movs	r2, #119
+ 237 0042 FFF7FEFF 		bl	od_write
+  36:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord) != 0x1633) {
+ 238              		.loc 1 36 0
+ 239 0046 01E0     		b	.L14
+ 240              	.L15:
+  37:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 		yield();
+ 241              		.loc 1 37 0
+ 242 0048 FFF7FEFF 		bl	yield
+ 243              	.L14:
+  36:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	while ( (In.StatusWord) != 0x1633) {
+ 244              		.loc 1 36 0 discriminator 1
+ 245 004c 40F20003 		movw	r3, #:lower16:In
+ 246 0050 C0F20003 		movt	r3, #:upper16:In
+ 247 0054 1B88     		ldrh	r3, [r3]	@ unaligned
+ 248 0056 9AB2     		uxth	r2, r3
+ 249 0058 41F23363 		movw	r3, #5683
+ 250 005c 9A42     		cmp	r2, r3
+ 251 005e F3D1     		bne	.L15
+  38:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	}
+ARM GAS  C:\windows\cc8OVOcz.s 			page 6
+
+
+  39:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }
+ 252              		.loc 1 39 0
+ 253 0060 0837     		adds	r7, r7, #8
+ 254 0062 BD46     		mov	sp, r7
+ 255              		@ sp needed
+ 256 0064 80BD     		pop	{r7, pc}
+ 257              		.cfi_endproc
+ 258              	.LFE4:
+ 260 0066 00BF     		.section	.text._Z8velocityji,"ax",%progbits
+ 261              		.align	2
+ 262              		.global	_Z8velocityji
+ 263              		.thumb
+ 264              		.thumb_func
+ 266              	_Z8velocityji:
+ 267              	.LFB5:
+  40:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 
+  41:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void velocity(U32 param, int sleeptime){
+ 268              		.loc 1 41 0
+ 269              		.cfi_startproc
+ 270              		@ args = 0, pretend = 0, frame = 8
+ 271              		@ frame_needed = 1, uses_anonymous_args = 0
+ 272 0000 80B5     		push	{r7, lr}
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 7, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 82B0     		sub	sp, sp, #8
+ 277              		.cfi_def_cfa_offset 16
+ 278 0004 00AF     		add	r7, sp, #0
+ 279              		.cfi_def_cfa_register 7
+ 280 0006 7860     		str	r0, [r7, #4]
+ 281 0008 3960     		str	r1, [r7]
+  42:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	od_write(0x60FF, 0x00, param);
+ 282              		.loc 1 42 0
+ 283 000a 46F2FF00 		movw	r0, #24831
+ 284 000e 0021     		movs	r1, #0
+ 285 0010 7A68     		ldr	r2, [r7, #4]
+ 286 0012 FFF7FEFF 		bl	od_write
+  43:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	sleep(sleeptime);
+ 287              		.loc 1 43 0
+ 288 0016 3B68     		ldr	r3, [r7]
+ 289 0018 1846     		mov	r0, r3
+ 290 001a FFF7FEFF 		bl	sleep
+  44:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }
+ 291              		.loc 1 44 0
+ 292 001e 0837     		adds	r7, r7, #8
+ 293 0020 BD46     		mov	sp, r7
+ 294              		@ sp needed
+ 295 0022 80BD     		pop	{r7, pc}
+ 296              		.cfi_endproc
+ 297              	.LFE5:
+ 299              		.section	.text._Z16SetDigitalOutputh,"ax",%progbits
+ 300              		.align	2
+ 301              		.global	_Z16SetDigitalOutputh
+ 302              		.thumb
+ 303              		.thumb_func
+ 305              	_Z16SetDigitalOutputh:
+ 306              	.LFB6:
+ARM GAS  C:\windows\cc8OVOcz.s 			page 7
+
+
+  45:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 
+  46:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void SetDigitalOutput(U08 outputs){
+ 307              		.loc 1 46 0
+ 308              		.cfi_startproc
+ 309              		@ args = 0, pretend = 0, frame = 16
+ 310              		@ frame_needed = 1, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312 0000 80B4     		push	{r7}
+ 313              		.cfi_def_cfa_offset 4
+ 314              		.cfi_offset 7, -4
+ 315 0002 85B0     		sub	sp, sp, #20
+ 316              		.cfi_def_cfa_offset 24
+ 317 0004 00AF     		add	r7, sp, #0
+ 318              		.cfi_def_cfa_register 7
+ 319 0006 0346     		mov	r3, r0
+ 320 0008 FB71     		strb	r3, [r7, #7]
+ 321              	.LBB2:
+  47:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	U32 OutputBit = 1 << (15+outputs);
+ 322              		.loc 1 47 0
+ 323 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 324 000c 0F33     		adds	r3, r3, #15
+ 325 000e 0122     		movs	r2, #1
+ 326 0010 02FA03F3 		lsl	r3, r2, r3
+ 327 0014 FB60     		str	r3, [r7, #12]
+  48:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	Out.Outputs = Out.Outputs | OutputBit;
+ 328              		.loc 1 48 0
+ 329 0016 40F20003 		movw	r3, #:lower16:Out
+ 330 001a C0F20003 		movt	r3, #:upper16:Out
+ 331 001e 1A68     		ldr	r2, [r3]	@ unaligned
+ 332 0020 FB68     		ldr	r3, [r7, #12]
+ 333 0022 1A43     		orrs	r2, r2, r3
+ 334 0024 40F20003 		movw	r3, #:lower16:Out
+ 335 0028 C0F20003 		movt	r3, #:upper16:Out
+ 336 002c 1A60     		str	r2, [r3]	@ unaligned
+ 337              	.LBE2:
+  49:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }
+ 338              		.loc 1 49 0
+ 339 002e 1437     		adds	r7, r7, #20
+ 340 0030 BD46     		mov	sp, r7
+ 341              		@ sp needed
+ 342 0032 5DF8047B 		ldr	r7, [sp], #4
+ 343 0036 7047     		bx	lr
+ 344              		.cfi_endproc
+ 345              	.LFE6:
+ 347              		.section	.text._Z18ClearDigitalOutputh,"ax",%progbits
+ 348              		.align	2
+ 349              		.global	_Z18ClearDigitalOutputh
+ 350              		.thumb
+ 351              		.thumb_func
+ 353              	_Z18ClearDigitalOutputh:
+ 354              	.LFB7:
+  50:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 
+  51:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** void ClearDigitalOutput(U08 outputs){
+ 355              		.loc 1 51 0
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 16
+ 358              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\windows\cc8OVOcz.s 			page 8
+
+
+ 359              		@ link register save eliminated.
+ 360 0000 80B4     		push	{r7}
+ 361              		.cfi_def_cfa_offset 4
+ 362              		.cfi_offset 7, -4
+ 363 0002 85B0     		sub	sp, sp, #20
+ 364              		.cfi_def_cfa_offset 24
+ 365 0004 00AF     		add	r7, sp, #0
+ 366              		.cfi_def_cfa_register 7
+ 367 0006 0346     		mov	r3, r0
+ 368 0008 FB71     		strb	r3, [r7, #7]
+ 369              	.LBB3:
+  52:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	U32 OutputBit = 1 << (15+outputs);
+ 370              		.loc 1 52 0
+ 371 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 372 000c 0F33     		adds	r3, r3, #15
+ 373 000e 0122     		movs	r2, #1
+ 374 0010 02FA03F3 		lsl	r3, r2, r3
+ 375 0014 FB60     		str	r3, [r7, #12]
+  53:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** 	Out.Outputs = Out.Outputs & ~OutputBit;
+ 376              		.loc 1 53 0
+ 377 0016 40F20003 		movw	r3, #:lower16:Out
+ 378 001a C0F20003 		movt	r3, #:upper16:Out
+ 379 001e 1A68     		ldr	r2, [r3]	@ unaligned
+ 380 0020 FB68     		ldr	r3, [r7, #12]
+ 381 0022 DB43     		mvns	r3, r3
+ 382 0024 1A40     		ands	r2, r2, r3
+ 383 0026 40F20003 		movw	r3, #:lower16:Out
+ 384 002a C0F20003 		movt	r3, #:upper16:Out
+ 385 002e 1A60     		str	r2, [r3]	@ unaligned
+ 386              	.LBE3:
+  54:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\ioia.h **** }...
+ 387              		.loc 1 54 0
+ 388 0030 1437     		adds	r7, r7, #20
+ 389 0032 BD46     		mov	sp, r7
+ 390              		@ sp needed
+ 391 0034 5DF8047B 		ldr	r7, [sp], #4
+ 392 0038 7047     		bx	lr
+ 393              		.cfi_endproc
+ 394              	.LFE7:
+ 396 003a 00BF     		.section	.text._Z4userv,"ax",%progbits
+ 397              		.align	2
+ 398              		.global	_Z4userv
+ 399              		.thumb
+ 400              		.thumb_func
+ 402              	_Z4userv:
+ 403              	.LFB8:
+ 404              		.file 2 "C:\\Plug & Drive Studio\\PNDS-2.1.2-x86\\workspace\\metal_velo\\gen\\mappings\\metal_shak
+   1:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** // map U16 StatusWord as input 0x6041:00
+   2:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** // map U32 Outputs as output 0x60FE:01
+   3:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** #include "wrapper.h"
+   4:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** #include "ioia.h"
+   5:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 
+   6:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** void user()
+   7:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** {
+ 405              		.loc 2 7 0
+ 406              		.cfi_startproc
+ 407              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\windows\cc8OVOcz.s 			page 9
+
+
+ 408              		@ frame_needed = 1, uses_anonymous_args = 0
+ 409 0000 80B5     		push	{r7, lr}
+ 410              		.cfi_def_cfa_offset 8
+ 411              		.cfi_offset 7, -8
+ 412              		.cfi_offset 14, -4
+ 413 0002 00AF     		add	r7, sp, #0
+ 414              		.cfi_def_cfa_register 7
+   8:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	ClearDigitalOutput(2);
+ 415              		.loc 2 8 0
+ 416 0004 0220     		movs	r0, #2
+ 417 0006 FFF7FEFF 		bl	_Z18ClearDigitalOutputh
+   9:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	mode_velocity();
+ 418              		.loc 2 9 0
+ 419 000a FFF7FEFF 		bl	_Z13mode_velocityv
+  10:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	start();
+ 420              		.loc 2 10 0
+ 421 000e FFF7FEFF 		bl	_Z5startv
+  11:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	ClearDigitalOutput(1);
+ 422              		.loc 2 11 0
+ 423 0012 0120     		movs	r0, #1
+ 424 0014 FFF7FEFF 		bl	_Z18ClearDigitalOutputh
+  12:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	sleep(40);
+ 425              		.loc 2 12 0
+ 426 0018 2820     		movs	r0, #40
+ 427 001a FFF7FEFF 		bl	sleep
+  13:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	SetDigitalOutput(1);
+ 428              		.loc 2 13 0
+ 429 001e 0120     		movs	r0, #1
+ 430 0020 FFF7FEFF 		bl	_Z16SetDigitalOutputh
+  14:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	sleep(100);
+ 431              		.loc 2 14 0
+ 432 0024 6420     		movs	r0, #100
+ 433 0026 FFF7FEFF 		bl	sleep
+  15:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	ClearDigitalOutput(1);
+ 434              		.loc 2 15 0
+ 435 002a 0120     		movs	r0, #1
+ 436 002c FFF7FEFF 		bl	_Z18ClearDigitalOutputh
+  16:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	sleep(40);	
+ 437              		.loc 2 16 0
+ 438 0030 2820     		movs	r0, #40
+ 439 0032 FFF7FEFF 		bl	sleep
+  17:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	SetDigitalOutput(1);
+ 440              		.loc 2 17 0
+ 441 0036 0120     		movs	r0, #1
+ 442 0038 FFF7FEFF 		bl	_Z16SetDigitalOutputh
+  18:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	sleep(100);
+ 443              		.loc 2 18 0
+ 444 003c 6420     		movs	r0, #100
+ 445 003e FFF7FEFF 		bl	sleep
+  19:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	ClearDigitalOutput(1);
+ 446              		.loc 2 19 0
+ 447 0042 0120     		movs	r0, #1
+ 448 0044 FFF7FEFF 		bl	_Z18ClearDigitalOutputh
+  20:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	sleep(40);	
+ 449              		.loc 2 20 0
+ 450 0048 2820     		movs	r0, #40
+ 451 004a FFF7FEFF 		bl	sleep
+ARM GAS  C:\windows\cc8OVOcz.s 			page 10
+
+
+  21:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	SetDigitalOutput(1);
+ 452              		.loc 2 21 0
+ 453 004e 0120     		movs	r0, #1
+ 454 0050 FFF7FEFF 		bl	_Z16SetDigitalOutputh
+  22:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	sleep(100);
+ 455              		.loc 2 22 0
+ 456 0054 6420     		movs	r0, #100
+ 457 0056 FFF7FEFF 		bl	sleep
+  23:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	od_write(0x6040, 0x00, 0x0);
+ 458              		.loc 2 23 0
+ 459 005a 46F24000 		movw	r0, #24640
+ 460 005e 0021     		movs	r1, #0
+ 461 0060 0022     		movs	r2, #0
+ 462 0062 FFF7FEFF 		bl	od_write
+  24:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	sleep(1500);
+ 463              		.loc 2 24 0
+ 464 0066 40F2DC50 		movw	r0, #1500
+ 465 006a FFF7FEFF 		bl	sleep
+  25:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	SetDigitalOutput(2);
+ 466              		.loc 2 25 0
+ 467 006e 0220     		movs	r0, #2
+ 468 0070 FFF7FEFF 		bl	_Z16SetDigitalOutputh
+  26:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	//stop();
+  27:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** 	od_write(0x2300, 0x00, 0x0);
+ 469              		.loc 2 27 0
+ 470 0074 4FF40C50 		mov	r0, #8960
+ 471 0078 0021     		movs	r1, #0
+ 472 007a 0022     		movs	r2, #0
+ 473 007c FFF7FEFF 		bl	od_write
+  28:C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings\metal_shake.cpp **** }
+ 474              		.loc 2 28 0
+ 475 0080 80BD     		pop	{r7, pc}
+ 476              		.cfi_endproc
+ 477              	.LFE8:
+ 479 0082 00BF     		.text
+ 480              	.Letext0:
+ 481              		.file 3 "C:\\Plug & Drive Studio\\PNDS-2.1.2-x86\\workspace\\metal_velo\\gen/types.h"
+ 482              		.file 4 "C:\\Plug & Drive Studio\\PNDS-2.1.2-x86\\workspace\\metal_velo\\gen/mapping.h"
+ARM GAS  C:\windows\cc8OVOcz.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 metal_shake.cpp
+C:\windows\cc8OVOcz.s:19     .text._Z13mode_positionv:00000000 $t
+C:\windows\cc8OVOcz.s:24     .text._Z13mode_positionv:00000000 _Z13mode_positionv
+C:\windows\cc8OVOcz.s:48     .text._Z13mode_velocityv:00000000 $t
+C:\windows\cc8OVOcz.s:53     .text._Z13mode_velocityv:00000000 _Z13mode_velocityv
+C:\windows\cc8OVOcz.s:76     .text._Z5startv:00000000 $t
+C:\windows\cc8OVOcz.s:81     .text._Z5startv:00000000 _Z5startv
+C:\windows\cc8OVOcz.s:156    .text._Z4stopv:00000000 $t
+C:\windows\cc8OVOcz.s:161    .text._Z4stopv:00000000 _Z4stopv
+C:\windows\cc8OVOcz.s:189    .text._Z6targetj:00000000 $t
+C:\windows\cc8OVOcz.s:194    .text._Z6targetj:00000000 _Z6targetj
+C:\windows\cc8OVOcz.s:261    .text._Z8velocityji:00000000 $t
+C:\windows\cc8OVOcz.s:266    .text._Z8velocityji:00000000 _Z8velocityji
+C:\windows\cc8OVOcz.s:300    .text._Z16SetDigitalOutputh:00000000 $t
+C:\windows\cc8OVOcz.s:305    .text._Z16SetDigitalOutputh:00000000 _Z16SetDigitalOutputh
+C:\windows\cc8OVOcz.s:348    .text._Z18ClearDigitalOutputh:00000000 $t
+C:\windows\cc8OVOcz.s:353    .text._Z18ClearDigitalOutputh:00000000 _Z18ClearDigitalOutputh
+C:\windows\cc8OVOcz.s:397    .text._Z4userv:00000000 $t
+C:\windows\cc8OVOcz.s:402    .text._Z4userv:00000000 _Z4userv
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+od_write
+yield
+In
+sleep
+Out

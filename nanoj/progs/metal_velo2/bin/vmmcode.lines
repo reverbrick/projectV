@@ -1,0 +1,84 @@
+Decoded dump of debug contents of section .debug_line:
+
+CU: C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen/types.h:
+File name                            Line number    Starting address
+
+CU: C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo/ioia.h:
+File name                            Line number    Starting address
+ioia.h                                         1                   0
+
+ioia.h                                         2                 0x4
+ioia.h                                         3                0x10
+ioia.h                                         5           0x8008410
+ioia.h                                         6           0x8008414
+ioia.h                                         7           0x8008420
+ioia.h                                         9           0x8008424
+ioia.h                                        10           0x8008428
+ioia.h                                        11           0x8008434
+ioia.h                                        12           0x8008436
+ioia.h                                        11           0x800843a
+ioia.h                                        14           0x800844e
+ioia.h                                        15           0x800845a
+ioia.h                                        16           0x800845c
+ioia.h                                        15           0x8008460
+ioia.h                                        18           0x8008474
+ioia.h                                        19           0x8008480
+ioia.h                                        20           0x8008482
+ioia.h                                        19           0x8008486
+ioia.h                                        22           0x800849a
+ioia.h                                        24                   0
+
+ioia.h                                        25                 0x4
+ioia.h                                        26                0x10
+ioia.h                                        27                0x1c
+ioia.h                                        29                   0
+
+ioia.h                                        30                 0x8
+ioia.h                                        31                0x14
+ioia.h                                        32                0x20
+ioia.h                                        33                0x22
+ioia.h                                        32                0x26
+ioia.h                                        35                0x3a
+ioia.h                                        36                0x46
+ioia.h                                        37                0x48
+ioia.h                                        36                0x4c
+ioia.h                                        39                0x60
+ioia.h                                        41                   0
+
+ioia.h                                        42                 0xa
+ioia.h                                        43                0x16
+ioia.h                                        44                0x1e
+ioia.h                                        46           0x800849c
+
+ioia.h                                        47           0x80084a6
+ioia.h                                        48           0x80084b2
+ioia.h                                        49           0x80084ca
+ioia.h                                        51           0x80084d4
+
+ioia.h                                        52           0x80084de
+ioia.h                                        53           0x80084ea
+ioia.h                                        54           0x8008504
+
+C:\Plug & Drive Studio\PNDS-2.1.2-x86\workspace\metal_velo\gen\mappings/metal_shake.cpp:
+metal_shake.cpp                                7           0x8008510
+metal_shake.cpp                                8           0x8008514
+metal_shake.cpp                                9           0x800851a
+metal_shake.cpp                               10           0x800851e
+metal_shake.cpp                               11           0x8008522
+metal_shake.cpp                               12           0x8008528
+metal_shake.cpp                               13           0x800852e
+metal_shake.cpp                               14           0x8008534
+metal_shake.cpp                               15           0x800853a
+metal_shake.cpp                               16           0x8008540
+metal_shake.cpp                               17           0x8008546
+metal_shake.cpp                               18           0x800854c
+metal_shake.cpp                               19           0x8008552
+metal_shake.cpp                               20           0x8008558
+metal_shake.cpp                               21           0x800855e
+metal_shake.cpp                               22           0x8008564
+metal_shake.cpp                               23           0x800856a
+metal_shake.cpp                               24           0x8008576
+metal_shake.cpp                               25           0x800857e
+metal_shake.cpp                               27           0x8008584
+metal_shake.cpp                               28           0x8008590
+
