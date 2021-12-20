@@ -29,7 +29,7 @@ while(True):
     #img.draw_circle(center[0], center[1], 1, (255,255,255), 2, False)
     if buf == b"snap":
         img = sensor.snapshot().lens_corr(0.9)
-        img.draw_rectangle(0, 0, 300, 1024, (0, 0, 0), fill=True)
+        img.mask_circle(1000,1014,1030)
         if show_threshold == True:
             img.binary([threshold])
         val = []
