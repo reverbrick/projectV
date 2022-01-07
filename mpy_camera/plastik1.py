@@ -19,6 +19,7 @@ ser = UART(3, 115330)
 pin0 = Pin('P0', Pin.OUT_PP, Pin.PULL_NONE)
 center = (668, 558)
 threshold = (8, 255)
+
 ratio = 0.32
 def distance(x1,y1,x2,y2):
     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
@@ -27,9 +28,11 @@ while(True):
     time.sleep(0.2)
     buf = recv_msg(ser)
     #img.draw_circle(center[0], center[1], 1, (255,255,255), 2, False)
-    if buf == b"snap":
+    a = 1
+    if a == 1:
+    #if buf == b"snap":
         img = sensor.snapshot().lens_corr(0.9)
-        img.draw_rectangle(0, 0, 300, 1024, (0, 0, 0), fill=True)
+        img.mask_circle(1000,1014,1030)
         if show_threshold == True:
             img.binary([threshold])
         val = []
