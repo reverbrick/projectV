@@ -26,7 +26,7 @@ def test():
         #print(shake(1))
         time.sleep(0.7)
 
-def shake(id, sleep=0.4):
+def shake(id, sleep=0.5):
     """
     ret = []
     retry = 1
@@ -59,8 +59,8 @@ def getItems(id):
     if pos!={}:
         return "'%s''%s''%s''%s'\r\n"%(pos["x"], pos["y"], pos["angle"], pos["side"])
     else:
-        return "'0''0''0''-1'\r\n"
-        #return "''''''''\r\n"
+        #return "'0''0''0''-1'\r\n"
+        return "''''''''\r\n"
 
 while(True):
     c, addr = s.accept()
@@ -76,18 +76,18 @@ while(True):
         scara[addr[0]].write(getItems(0))
     elif message == b'\x00\x07snap2\r':
         scara[addr[0]].write(getItems(1))
-    """
     #wait till state change
+    """
     retry = 0
     while "state=3" in str(scara[addr[0]]):
-        print(scara[addr[0]])
+        #print(scara[addr[0]])
         print(".", end="")
         retry=retry+1
         time.sleep_ms(30)
         if retry>20:
             break
     """
-    scara[addr[0]].recv(1024) 
+    scara[addr[0]].recv(1024)
     c.close()
     #except:
     #    machine.reset
