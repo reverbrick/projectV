@@ -1,0 +1,38 @@
+#system state machine
+0  initial
+10 connect network
+11 network ready - init machines
+12 machines init - check
+13 system error
+15 machines ready
+
+#bowl state machine
+0  initial
+...
+10 bowl init
+11 bowl ready
+...
+13 bowl error
+14 bowl left
+15 bowl right
+16 bowl stop
+17 bowl jump
+18 bowl sequence
+19 bowl done
+
+#camera state machine
+0 initial
+10 camera init
+11 camera ready
+...
+13 camera error
+...
+15 camera shoot
+16 camera done
+
+#scara state machine
+0 initial - away from cameras and tools
+10 connect robot
+11 robot ready
+...
+13 robot error
