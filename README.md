@@ -1,4 +1,4 @@
-I am setting free the work which was done to bring MicroPython and OpenMV to industry.
+We are setting free the work which was done to bring MicroPython and OpenMV to industry.
 
 The project consists:
 - OpenMV Camera ethernet hat project and config
