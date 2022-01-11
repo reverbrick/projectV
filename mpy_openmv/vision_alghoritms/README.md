@@ -17,5 +17,5 @@ If robot receive flag, camera send via olimex list of available to pick elements
 
 ## Visualization of an anti-collision system with a robot gripper:
 <p align="center">
-<img style="border: 10px solid white;" src="https://raw.githubusercontent.com/openmv/openmv-media/master/boards/openmv-cam/v3/web-new-cam-v3-angle.jpg" width="320" height="320">
+<img style="border: 10px solid white;" src="https://raw.githubusercontent.com/reverbrick/projectV/master/mpy_openmv/vision_alghoritms/images/projectvimg.png" width="320" height="320">
 </p>
