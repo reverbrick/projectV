@@ -1,10 +1,10 @@
 from machine import UART
-from ioia import Camera, Flash, Velux; import time
+from ioia import Camera, Flash, Project_V; import time
 from comms import recv_msg, send_msg
 cam = Camera(exposure=50000, framesize="SVGA")
 cam.sensor.set_quality(100)
 fla = Flash(0.1,0)
-cli = Velux()
+cli = Project_V()
 ser = UART(3, 115200)
 while(True):
     buf = recv_msg(ser)
