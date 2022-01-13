@@ -64,7 +64,7 @@ class Flash():
         self.time.sleep_ms(self.post)
         self.pin.value(0)
 
-class Velux():
+class Project_V():
     import math, json
     def distance(self, x1, y1, x2, y2):
         return self.math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
