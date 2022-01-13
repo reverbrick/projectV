@@ -1,12 +1,12 @@
 from machine import UART
-from ioia import Camera, Flash, Velux; import time
+from ioia import Camera, Project_V, Velux; import time
 from comms import recv_msg, send_msg
 import ubinascii, math, json #temp
 cam = Camera(exposure=44000, framesize="SVGA")
 cam.sensor.set_quality(100)
 cam.sensor.set_contrast(-3)
 cam.sensor.set_brightness(-3)
-fla = Flash(100,0)
+fla = Project_V(100,0)
 #cli = Velux()
 ser = UART(3, 115200)
 ratio = 0.73
